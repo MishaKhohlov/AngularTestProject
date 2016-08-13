@@ -1,5 +1,4 @@
-let webpack = require("webpack");
-let ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+var webpack = require("webpack");
 
 module.exports = {
   entry: './build/app/app.js',
@@ -19,7 +18,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new ngAnnotatePlugin({add: true}),
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
+    //new webpack.optimize.UglifyJsPlugin({minimize: true})
   ]
 };

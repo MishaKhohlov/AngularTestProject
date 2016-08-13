@@ -40650,11 +40650,11 @@ try {
 	
 	var _navbar = __webpack_require__(10);
 	
-	var _home = __webpack_require__(13);
+	var _home = __webpack_require__(20);
 	
-	var _contact = __webpack_require__(17);
+	var _contact = __webpack_require__(24);
 	
-	var _blog = __webpack_require__(21);
+	var _blog = __webpack_require__(28);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -40679,9 +40679,11 @@ try {
 	
 	var _navbar = __webpack_require__(11);
 	
+	var _authorization = __webpack_require__(14);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var navbar = exports.navbar = _angular2.default.module('navbar', []).component('navbar', _navbar.navbarComponent);
+	var navbar = exports.navbar = _angular2.default.module('navbar', [_authorization.authorization.name]).component('navbar', _navbar.navbarComponent);
 
 /***/ },
 /* 11 */
@@ -40698,10 +40700,13 @@ try {
 	
 	var _navbar2 = _interopRequireDefault(_navbar);
 	
+	var _navbar3 = __webpack_require__(13);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var navbarComponent = exports.navbarComponent = {
 	  template: _navbar2.default,
+	  controller: _navbar3.NavbarController,
 	  bindings: {
 	    links: '<'
 	  },
@@ -40712,10 +40717,181 @@ try {
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav role=\"navigation\">\n    <ul>\n      <li ng-repeat=\"link in nav.links\">\n        <a href=\"\" ui-sref=\"{{link.component}}\" ui-sref-active=\"active-page\">{{link.name}}</a>\n      </li>\n    </ul>\n</nav>\n"
+	module.exports = "<nav role=\"navigation\">\n    <ul>\n      <li ng-repeat=\"link in nav.links\">\n        <a href=\"\" ui-sref=\"{{link.component}}\" ui-sref-active=\"active-page\">{{link.name}}</a>\n      </li>\n    </ul>\n  <div>\n    <button ng-click=\"nav.registerForm = !nav.registerForm\">Register</button>\n    <button ng-click=\"nav.loginForm = !nav.loginForm\">Login</button>\n  </div>\n  <authorization register=\"nav.registerForm\" login=\"nav.loginForm\"></authorization>\n</nav>\n"
 
 /***/ },
 /* 13 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var NavbarController = function () {
+	  function NavbarController() {
+	    _classCallCheck(this, NavbarController);
+	
+	    this.loginForm = false;
+	    this.registerForm = false;
+	  }
+	
+	  _createClass(NavbarController, [{
+	    key: "$onInit",
+	    value: function $onInit() {}
+	  }]);
+	
+	  return NavbarController;
+	}();
+	
+	NavbarController.$inject = [];
+	
+	exports.NavbarController = NavbarController;
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.authorization = undefined;
+	
+	var _angular = __webpack_require__(4);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _authorization = __webpack_require__(15);
+	
+	var _auth = __webpack_require__(18);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var authorization = exports.authorization = _angular2.default.module('authorization', [_auth.authFact.name]).component('authorization', _authorization.authorizationComponent);
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.authorizationComponent = undefined;
+	
+	var _authorization = __webpack_require__(16);
+	
+	var _authorization2 = _interopRequireDefault(_authorization);
+	
+	var _authorization3 = __webpack_require__(17);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var authorizationComponent = exports.authorizationComponent = {
+	  template: _authorization2.default,
+	  controller: _authorization3.AuthorizationController,
+	  bindings: {
+	    register: '=',
+	    login: '='
+	  },
+	  controllerAs: 'auth'
+	};
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	module.exports = "<div ng-if=\"auth.register\">\n  <button ng-click=\"auth.register = !auth.register\">Close</button>\n  <form class=\"form-horizontal\" action='' method=\"POST\">\n    <fieldset>\n      <div id=\"legend\">\n        <legend class=\"\">Register</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- Username -->\n        <label class=\"control-label\" for=\"username\">Username</label>\n        <div class=\"controls\">\n          <input type=\"text\" id=\"username\" name=\"username\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Username can contain any letters or numbers, without spaces</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"text\" id=\"email\" name=\"email\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Please provide your E-mail</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" id=\"password\" name=\"password\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Password should be at least 4 characters</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password -->\n        <label class=\"control-label\" for=\"password_confirm\">Password (Confirm)</label>\n        <div class=\"controls\">\n          <input type=\"password\" id=\"password_confirm\" name=\"password_confirm\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Please confirm password</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\">Register</button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>\n\n<div class=\"container\" ng-if=\"auth.login\">\n  <button ng-click=\"auth.login = !auth.login\">Close</button>\n  <form class=\"form-horizontal\" action='' method=\"POST\">\n    <fieldset>\n      <div id=\"legend\">\n        <legend class=\"\">Login</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"text\" id=\"email\" name=\"email\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Please provide your E-mail</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" id=\"password\" name=\"password\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Password should be at least 4 characters</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\">Register</button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>"
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var AuthorizationController = function () {
+	  function AuthorizationController(authFactory) {
+	    _classCallCheck(this, AuthorizationController);
+	
+	    this.authFactory = authFactory;
+	  }
+	
+	  _createClass(AuthorizationController, [{
+	    key: '$onInit',
+	    value: function $onInit() {}
+	  }, {
+	    key: 'saveData',
+	    value: function saveData() {
+	      this.authFactory.save();
+	    }
+	  }]);
+	
+	  return AuthorizationController;
+	}();
+	
+	AuthorizationController.$inject = ['authFactory'];
+	
+	exports.AuthorizationController = AuthorizationController;
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.authFact = undefined;
+	
+	var _angular = __webpack_require__(4);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _auth = __webpack_require__(19);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var authFact = exports.authFact = _angular2.default.module('authFact', []).factory('authFactory', _auth.authorizationFactory);
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var authorizationFactory = function authorizationFactory() {
+	
+	  return {
+	    save: function save(obj) {}
+	  };
+	};
+	
+	authorizationFactory.$inject = [];
+	
+	exports.authorizationFactory = authorizationFactory;
+
+/***/ },
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40729,7 +40905,7 @@ try {
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _home = __webpack_require__(14);
+	var _home = __webpack_require__(21);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -40746,7 +40922,7 @@ try {
 	}).component('home', _home.homeComponent);
 
 /***/ },
-/* 14 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40756,11 +40932,11 @@ try {
 	});
 	exports.homeComponent = undefined;
 	
-	var _home = __webpack_require__(15);
+	var _home = __webpack_require__(22);
 	
 	var _home2 = _interopRequireDefault(_home);
 	
-	var _home3 = __webpack_require__(16);
+	var _home3 = __webpack_require__(23);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -40771,13 +40947,13 @@ try {
 	};
 
 /***/ },
-/* 15 */
+/* 22 */
 /***/ function(module, exports) {
 
 	module.exports = "<section class=\"home\">\n  <h1>{{home.page}}</h1>\n</section>\n"
 
 /***/ },
-/* 16 */
+/* 23 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -40810,7 +40986,7 @@ try {
 	exports.HomeController = HomeController;
 
 /***/ },
-/* 17 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40824,7 +41000,7 @@ try {
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _contact = __webpack_require__(18);
+	var _contact = __webpack_require__(25);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -40836,7 +41012,7 @@ try {
 	}).component('contact', _contact.contactComponent);
 
 /***/ },
-/* 18 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40846,11 +41022,11 @@ try {
 	});
 	exports.contactComponent = undefined;
 	
-	var _contact = __webpack_require__(19);
+	var _contact = __webpack_require__(26);
 	
 	var _contact2 = _interopRequireDefault(_contact);
 	
-	var _contact3 = __webpack_require__(20);
+	var _contact3 = __webpack_require__(27);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -40861,13 +41037,13 @@ try {
 	};
 
 /***/ },
-/* 19 */
+/* 26 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"gallery\">\n  <h1>{{cont.page}}</h1>\n  <p>{{cont.testPromises}}</p>\n</div>\n"
 
 /***/ },
-/* 20 */
+/* 27 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -40915,10 +41091,12 @@ try {
 	  return ContactController;
 	}();
 	
+	ContactController.$inject = ['$rootScope'];
+	
 	exports.ContactController = ContactController;
 
 /***/ },
-/* 21 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40932,7 +41110,7 @@ try {
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _blog = __webpack_require__(22);
+	var _blog = __webpack_require__(29);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -40944,7 +41122,7 @@ try {
 	}).component('blog', _blog.blogComponent);
 
 /***/ },
-/* 22 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40954,11 +41132,11 @@ try {
 	});
 	exports.blogComponent = undefined;
 	
-	var _blog = __webpack_require__(23);
+	var _blog = __webpack_require__(30);
 	
 	var _blog2 = _interopRequireDefault(_blog);
 	
-	var _blog3 = __webpack_require__(24);
+	var _blog3 = __webpack_require__(31);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -40969,13 +41147,13 @@ try {
 	};
 
 /***/ },
-/* 23 */
+/* 30 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"blog\">\n  <h1>{{blog.page}}</h1>\n</div>\n"
 
 /***/ },
-/* 24 */
+/* 31 */
 /***/ function(module, exports) {
 
 	'use strict';

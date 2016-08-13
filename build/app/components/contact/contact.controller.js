@@ -21,4 +21,6 @@ class ContactController {
   }
 }
 
+ContactController.$inject = ['$rootScope'];
+
 export { ContactController };
