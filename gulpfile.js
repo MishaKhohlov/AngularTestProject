@@ -24,12 +24,13 @@ gulp.task('html', function () {
 });
 
 gulp.task('styl', function () {
-  gulp.src("build/styles/common.styl")
+  gulp.src("build/app/app.styl")
     .pipe(sourcemaps.init())
     .pipe(stylus({
-      compress: true
+      // compress: true
     }))
     .pipe(gulp.dest("dist/css"))
+    .pipe(ignoreErrors())
     .pipe(sourcemaps.write('.'))
     .pipe(browserSync.stream());
 });
@@ -46,13 +47,13 @@ gulp.task('browser-sync', function () {
 gulp.task('watch', function () {
   gulp.watch('build/**/*.html', ['html']);
   gulp.watch(['build/app/**/*.**'], ['js']);
-  gulp.watch('build/styles/**/*.styl', ['styl']);
+  gulp.watch('build/app/**/*.styl', ['styl']);
 });
 
 gulp.task('default', [
   'html',
-  'styl',
   'js',
+  'styl',
   'browser-sync',
   'watch'
 ]);
