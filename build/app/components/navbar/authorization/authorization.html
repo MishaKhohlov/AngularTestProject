@@ -7,7 +7,7 @@
       </div>
       <div class="control-group">
         <!-- Username -->
-        <label class="control-label" for="username">Username</label>
+        <label class="control-label" for="username">Full name</label>
         <div class="controls">
           <input type="text" name="username" id="username" placeholder="" class="input-xlarge" ng-minlength="2"
                  ng-maxlength="15"
@@ -23,12 +23,12 @@
         <label class="control-label" for="email">E-mail</label>
         <div class="controls">
           <input type="email" name="email" id="email" placeholder="" class="input-xlarge" ng-minlength="3"
-                 ng-maxlength="15" ng-model="register.mail"
-                 required>
+                 ng-maxlength="15" ng-model="register.mail" ng-pattern="/\d+/" required>
           <p class="help-block">Please provide your E-mail</p>
           <p ng-show="registerForm.email.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
           <p ng-show="registerForm.email.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
-          <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="help-block bg-danger">{{auth.invalidValue}}</p>
+          <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="help-block bg-danger">
+            {{auth.invalidValue}}</p>
         </div>
       </div>
 
@@ -42,6 +42,7 @@
           <p class="help-block">Password should be at least 6 characters</p>
           <p ng-show="registerForm.password.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
           <p ng-show="registerForm.password.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
+          {{auth.invalidValue}}</p>
         </div>
       </div>
 
@@ -88,7 +89,8 @@
           <p class="help-block">Please provide your E-mail</p>
           <p ng-show="registerForm.email.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
           <p ng-show="registerForm.email.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
-          <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block bg-danger">{{auth.invalidValue}}</p>
+          <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block bg-danger">
+            {{auth.invalidValue}}</p>
         </div>
       </div>
 
