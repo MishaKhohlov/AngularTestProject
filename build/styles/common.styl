@@ -1,11 +1,16 @@
 @require 'variables'
 @require 'mixins'
 
+input, textarea
+  outline none
+
+
 .active-page
   color red
 
 .form-register, .form-login
-  input.ng-invalid
-    border 1px solid red
-  input.ng-empty
-    border-color grey
+  & input
+    &.ng-invalid
+      border 1px solid red
+    &.ng-empty
+      border-color grey

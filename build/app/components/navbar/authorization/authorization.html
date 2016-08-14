@@ -1,5 +1,5 @@
-<div ng-if="auth.register">
-  <a href="" ng-click="auth.register = !auth.register">Close</a>
+<div class="container" ng-if="auth.register">
+  <a href="" ng-click="auth.register = !auth.register" ng-click="resetForm($event)">Close</a>
   <form class="form-horizontal form-register" name="registerForm" action='' method="POST" novalidate>
     <fieldset>
       <div id="legend">
@@ -13,6 +13,8 @@
                  ng-maxlength="15"
                  ng-model="register.username" required>
           <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+          <p ng-show="registerForm.username.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
+          <p ng-show="registerForm.username.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
         </div>
       </div>
 
@@ -20,9 +22,13 @@
         <!-- E-mail -->
         <label class="control-label" for="email">E-mail</label>
         <div class="controls">
-          <input type="email" name="email" id="email" placeholder="" class="input-xlarge" ng-minlength="3" ng-model="register.mail"
+          <input type="email" name="email" id="email" placeholder="" class="input-xlarge" ng-minlength="3"
+                 ng-maxlength="15" ng-model="register.mail"
                  required>
           <p class="help-block">Please provide your E-mail</p>
+          <p ng-show="registerForm.email.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
+          <p ng-show="registerForm.email.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
+          <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="help-block bg-danger">{{auth.invalidValue}}</p>
         </div>
       </div>
 
@@ -47,8 +53,10 @@
                  ng-minlength="6" ng-maxlength="30"
                  class="input-xlarge" ng-model="register.passwordConfirm" required>
           <p class="help-block">Please confirm password</p>
-          <p ng-show="registerForm.password_confirm.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
-          <p ng-show="registerForm.password_confirm.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
+          <p ng-show="registerForm.password_confirm.$error.minlength" class="help-block bg-danger">
+            {{auth.errorShort}}</p>
+          <p ng-show="registerForm.password_confirm.$error.maxlength" class="help-block bg-danger">
+            {{auth.errorLong}}</p>
         </div>
       </div>
 
@@ -56,7 +64,7 @@
         <!-- Button -->
         <div class="controls">
           <button class="btn btn-success" ng-disabled="registerForm.$invalid"
-                  ng-click="auth.registered(registerForm.$valid)">Register
+                  ng-click="auth.registered($event, registerForm.$valid)">Register
           </button>
         </div>
       </div>
@@ -65,7 +73,7 @@
 </div>
 
 <div class="container" ng-if="auth.login">
-  <a href="" ng-click="auth.login = !auth.login">Close</a>
+  <a href="" ng-click="auth.login = !auth.login" ng-click="resetForm($event)">Close</a>
   <form class="form-horizontal form-login" name="loginForm" action='' method="POST" novalidate>
     <fieldset>
       <div>
@@ -75,8 +83,12 @@
         <!-- E-mail -->
         <label class="control-label" for="email_login">E-mail</label>
         <div class="controls">
-          <input type="email" id="email_login" name="email" placeholder="" class="input-xlarge" ng-minlength="3" ng-model="login.mail" required>
+          <input type="email" id="email_login" name="email" placeholder="" class="input-xlarge" ng-minlength="3"
+                 ng-maxlength="15" ng-model="login.mail" required>
           <p class="help-block">Please provide your E-mail</p>
+          <p ng-show="registerForm.email.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
+          <p ng-show="registerForm.email.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
+          <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block bg-danger">{{auth.invalidValue}}</p>
         </div>
       </div>
 
@@ -95,7 +107,8 @@
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <button class="btn btn-success" ng-disabled="loginForm.$invalid" ng-click="auth.login(loginForm.$valid)">
+          <button class="btn btn-success" ng-disabled="loginForm.$invalid"
+                  ng-click="auth.logged($event, loginForm.$valid)">
             Login
           </button>
         </div>

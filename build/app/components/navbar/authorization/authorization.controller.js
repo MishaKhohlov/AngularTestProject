@@ -2,23 +2,32 @@ class AuthorizationController {
   constructor(authFactory) {
     this.authFactory = authFactory;
     
-    this.errorShort = 'Password is too short';
-    this.errorLong = 'Password is too long.';
+    this.errorShort = 'Is too short.';
+    this.errorLong = 'Is too long.';
+    this.invalidValue = 'Enter a valid data'
   }
 
   $onInit() {
 
   }
 
-  registered(valid) {
+  registered(ev, valid) {
+    ev.preventDefault();
     console.log(valid);
     if(valid) {
       this.authFactory.save();
     }
   }
-  
-  login() {
-    
+
+  logged(ev, valid) {
+    ev.preventDefault();
+    console.log(valid);
+  }
+
+  resetFormRegister(ev) {
+    ev.preventDefault();
+    this.registered = {};
+    this.login = {};
   }
 }
 
