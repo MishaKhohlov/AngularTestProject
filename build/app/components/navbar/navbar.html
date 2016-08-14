@@ -5,8 +5,8 @@
       </li>
     </ul>
   <div>
-    <button ng-click="nav.registerForm = !nav.registerForm">Register</button>
-    <button ng-click="nav.loginForm = !nav.loginForm">Login</button>
+    <button ng-click="nav.registerForm = !nav.registerForm; nav.loginForm = false">Register</button>
+    <button ng-click="nav.loginForm = !nav.loginForm; ; nav.registerForm = false">Login</button>
   </div>
   <authorization register="nav.registerForm" login="nav.loginForm"></authorization>
 </nav>

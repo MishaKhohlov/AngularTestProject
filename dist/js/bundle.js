@@ -40717,7 +40717,7 @@ try {
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav role=\"navigation\">\n    <ul>\n      <li ng-repeat=\"link in nav.links\">\n        <a href=\"\" ui-sref=\"{{link.component}}\" ui-sref-active=\"active-page\">{{link.name}}</a>\n      </li>\n    </ul>\n  <div>\n    <button ng-click=\"nav.registerForm = !nav.registerForm\">Register</button>\n    <button ng-click=\"nav.loginForm = !nav.loginForm\">Login</button>\n  </div>\n  <authorization register=\"nav.registerForm\" login=\"nav.loginForm\"></authorization>\n</nav>\n"
+	module.exports = "<nav role=\"navigation\">\n    <ul>\n      <li ng-repeat=\"link in nav.links\">\n        <a href=\"\" ui-sref=\"{{link.component}}\" ui-sref-active=\"active-page\">{{link.name}}</a>\n      </li>\n    </ul>\n  <div>\n    <button ng-click=\"nav.registerForm = !nav.registerForm; nav.loginForm = false\">Register</button>\n    <button ng-click=\"nav.loginForm = !nav.loginForm; ; nav.registerForm = false\">Login</button>\n  </div>\n  <authorization register=\"nav.registerForm\" login=\"nav.loginForm\"></authorization>\n</nav>\n"
 
 /***/ },
 /* 13 */
@@ -40809,7 +40809,7 @@ try {
 /* 16 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-if=\"auth.register\">\n  <button ng-click=\"auth.register = !auth.register\">Close</button>\n  <form class=\"form-horizontal\" action='' method=\"POST\">\n    <fieldset>\n      <div id=\"legend\">\n        <legend class=\"\">Register</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- Username -->\n        <label class=\"control-label\" for=\"username\">Username</label>\n        <div class=\"controls\">\n          <input type=\"text\" id=\"username\" name=\"username\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Username can contain any letters or numbers, without spaces</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"text\" id=\"email\" name=\"email\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Please provide your E-mail</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" id=\"password\" name=\"password\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Password should be at least 4 characters</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password -->\n        <label class=\"control-label\" for=\"password_confirm\">Password (Confirm)</label>\n        <div class=\"controls\">\n          <input type=\"password\" id=\"password_confirm\" name=\"password_confirm\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Please confirm password</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\">Register</button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>\n\n<div class=\"container\" ng-if=\"auth.login\">\n  <button ng-click=\"auth.login = !auth.login\">Close</button>\n  <form class=\"form-horizontal\" action='' method=\"POST\">\n    <fieldset>\n      <div id=\"legend\">\n        <legend class=\"\">Login</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"text\" id=\"email\" name=\"email\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Please provide your E-mail</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" id=\"password\" name=\"password\" placeholder=\"\" class=\"input-xlarge\">\n          <p class=\"help-block\">Password should be at least 4 characters</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\">Register</button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>"
+	module.exports = "<div ng-if=\"auth.register\">\n  <a href=\"\" ng-click=\"auth.register = !auth.register\">Close</a>\n  <form class=\"form-horizontal form-register\" name=\"registerForm\" action='' method=\"POST\" novalidate>\n    <fieldset>\n      <div id=\"legend\">\n        <legend class=\"\">Register</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- Username -->\n        <label class=\"control-label\" for=\"username\">Username</label>\n        <div class=\"controls\">\n          <input type=\"text\" name=\"username\" id=\"username\" placeholder=\"\" class=\"input-xlarge\" ng-minlength=\"2\"\n                 ng-maxlength=\"15\"\n                 ng-model=\"register.username\" required>\n          <p class=\"help-block\">Username can contain any letters or numbers, without spaces</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"email\" name=\"email\" id=\"email\" placeholder=\"\" class=\"input-xlarge\" ng-minlength=\"3\" ng-model=\"register.mail\"\n                 required>\n          <p class=\"help-block\">Please provide your E-mail</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" name=\"password\" id=\"password\" placeholder=\"password\" class=\"input-xlarge\"\n                 ng-minlength=\"6\"\n                 ng-model=\"register.password\" required>\n          <p class=\"help-block\">Password should be at least 6 characters</p>\n          <p ng-show=\"registerForm.password.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.password.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password -->\n        <label class=\"control-label\" for=\"password_confirm\">Password (Confirm)</label>\n        <div class=\"controls\">\n          <input type=\"password\" id=\"password_confirm\" name=\"password_confirm\" placeholder=\"password confirm\"\n                 ng-minlength=\"6\" ng-maxlength=\"30\"\n                 class=\"input-xlarge\" ng-model=\"register.passwordConfirm\" required>\n          <p class=\"help-block\">Please confirm password</p>\n          <p ng-show=\"registerForm.password_confirm.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.password_confirm.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\" ng-disabled=\"registerForm.$invalid\"\n                  ng-click=\"auth.registered(registerForm.$valid)\">Register\n          </button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>\n\n<div class=\"container\" ng-if=\"auth.login\">\n  <a href=\"\" ng-click=\"auth.login = !auth.login\">Close</a>\n  <form class=\"form-horizontal form-login\" name=\"loginForm\" action='' method=\"POST\" novalidate>\n    <fieldset>\n      <div>\n        <legend class=\"\">Login</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email_login\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"email\" id=\"email_login\" name=\"email\" placeholder=\"\" class=\"input-xlarge\" ng-minlength=\"3\" ng-model=\"login.mail\" required>\n          <p class=\"help-block\">Please provide your E-mail</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password_login\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" name=\"password\" id=\"password_login\" placeholder=\"password\" class=\"input-xlarge\"\n                 ng-minlength=\"6\" ng-maxlength=\"30\" ng-model=\"login.password\" required>\n          <p class=\"help-block\">Password should be at least 6 characters</p>\n          <p ng-show=\"loginForm.password.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"loginForm.password.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\" ng-disabled=\"loginForm.$invalid\" ng-click=\"auth.login(loginForm.$valid)\">\n            Login\n          </button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>"
 
 /***/ },
 /* 17 */
@@ -40830,16 +40830,25 @@ try {
 	    _classCallCheck(this, AuthorizationController);
 	
 	    this.authFactory = authFactory;
+	
+	    this.errorShort = 'Password is too short';
+	    this.errorLong = 'Password is too long.';
 	  }
 	
 	  _createClass(AuthorizationController, [{
 	    key: '$onInit',
 	    value: function $onInit() {}
 	  }, {
-	    key: 'saveData',
-	    value: function saveData() {
-	      this.authFactory.save();
+	    key: 'registered',
+	    value: function registered(valid) {
+	      console.log(valid);
+	      if (valid) {
+	        this.authFactory.save();
+	      }
 	    }
+	  }, {
+	    key: 'login',
+	    value: function login() {}
 	  }]);
 	
 	  return AuthorizationController;
@@ -40880,9 +40889,16 @@ try {
 	  value: true
 	});
 	var authorizationFactory = function authorizationFactory() {
+	  var dataUser = [];
 	
+	  function _save() {
+	    dataUser.push.apply(dataUser, arguments);
+	    console.log(dataUser);
+	  }
 	  return {
-	    save: function save(obj) {}
+	    save: function save(obj) {
+	      _save(obj);
+	    }
 	  };
 	};
 	

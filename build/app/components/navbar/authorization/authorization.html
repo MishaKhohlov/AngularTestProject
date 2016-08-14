@@ -1,6 +1,6 @@
 <div ng-if="auth.register">
-  <button ng-click="auth.register = !auth.register">Close</button>
-  <form class="form-horizontal" action='' method="POST">
+  <a href="" ng-click="auth.register = !auth.register">Close</a>
+  <form class="form-horizontal form-register" name="registerForm" action='' method="POST" novalidate>
     <fieldset>
       <div id="legend">
         <legend class="">Register</legend>
@@ -9,7 +9,9 @@
         <!-- Username -->
         <label class="control-label" for="username">Username</label>
         <div class="controls">
-          <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+          <input type="text" name="username" id="username" placeholder="" class="input-xlarge" ng-minlength="2"
+                 ng-maxlength="15"
+                 ng-model="register.username" required>
           <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
       </div>
@@ -18,7 +20,8 @@
         <!-- E-mail -->
         <label class="control-label" for="email">E-mail</label>
         <div class="controls">
-          <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+          <input type="email" name="email" id="email" placeholder="" class="input-xlarge" ng-minlength="3" ng-model="register.mail"
+                 required>
           <p class="help-block">Please provide your E-mail</p>
         </div>
       </div>
@@ -27,8 +30,12 @@
         <!-- Password-->
         <label class="control-label" for="password">Password</label>
         <div class="controls">
-          <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-          <p class="help-block">Password should be at least 4 characters</p>
+          <input type="password" name="password" id="password" placeholder="password" class="input-xlarge"
+                 ng-minlength="6"
+                 ng-model="register.password" required>
+          <p class="help-block">Password should be at least 6 characters</p>
+          <p ng-show="registerForm.password.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
+          <p ng-show="registerForm.password.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
         </div>
       </div>
 
@@ -36,15 +43,21 @@
         <!-- Password -->
         <label class="control-label" for="password_confirm">Password (Confirm)</label>
         <div class="controls">
-          <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+          <input type="password" id="password_confirm" name="password_confirm" placeholder="password confirm"
+                 ng-minlength="6" ng-maxlength="30"
+                 class="input-xlarge" ng-model="register.passwordConfirm" required>
           <p class="help-block">Please confirm password</p>
+          <p ng-show="registerForm.password_confirm.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
+          <p ng-show="registerForm.password_confirm.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
         </div>
       </div>
 
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <button class="btn btn-success">Register</button>
+          <button class="btn btn-success" ng-disabled="registerForm.$invalid"
+                  ng-click="auth.registered(registerForm.$valid)">Register
+          </button>
         </div>
       </div>
     </fieldset>
@@ -52,34 +65,39 @@
 </div>
 
 <div class="container" ng-if="auth.login">
-  <button ng-click="auth.login = !auth.login">Close</button>
-  <form class="form-horizontal" action='' method="POST">
+  <a href="" ng-click="auth.login = !auth.login">Close</a>
+  <form class="form-horizontal form-login" name="loginForm" action='' method="POST" novalidate>
     <fieldset>
-      <div id="legend">
+      <div>
         <legend class="">Login</legend>
       </div>
       <div class="control-group">
         <!-- E-mail -->
-        <label class="control-label" for="email">E-mail</label>
+        <label class="control-label" for="email_login">E-mail</label>
         <div class="controls">
-          <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+          <input type="email" id="email_login" name="email" placeholder="" class="input-xlarge" ng-minlength="3" ng-model="login.mail" required>
           <p class="help-block">Please provide your E-mail</p>
         </div>
       </div>
 
       <div class="control-group">
         <!-- Password-->
-        <label class="control-label" for="password">Password</label>
+        <label class="control-label" for="password_login">Password</label>
         <div class="controls">
-          <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-          <p class="help-block">Password should be at least 4 characters</p>
+          <input type="password" name="password" id="password_login" placeholder="password" class="input-xlarge"
+                 ng-minlength="6" ng-maxlength="30" ng-model="login.password" required>
+          <p class="help-block">Password should be at least 6 characters</p>
+          <p ng-show="loginForm.password.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
+          <p ng-show="loginForm.password.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
         </div>
       </div>
 
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <button class="btn btn-success">Register</button>
+          <button class="btn btn-success" ng-disabled="loginForm.$invalid" ng-click="auth.login(loginForm.$valid)">
+            Login
+          </button>
         </div>
       </div>
     </fieldset>
