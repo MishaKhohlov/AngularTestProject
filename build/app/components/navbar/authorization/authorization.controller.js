@@ -1,36 +1,43 @@
 class AuthorizationController {
   constructor(authFactory) {
     this.authFactory = authFactory;
-    
     this.errorShort = 'Is too short.';
     this.errorLong = 'Is too long.';
-    this.invalidValue = 'Enter a valid data'
+    this.invalidValue = 'Enter a valid data';
+    this.passwordConfirm = 'Password is not similar';
+    this.passSimilar = false;
   }
 
   $onInit() {
 
   }
 
-  registered(ev, valid) {
+  registered(ev, form) {
     ev.preventDefault();
-    console.log(valid);
-    if(valid) {
-      this.authFactory.save();
-    }
+    this.authFactory.save({
+      name: form.username.$viewValue,
+      email: form.email.$viewValue,
+      password: form.password.$viewValue
+    });
+    this.register = false;
+    this.passSimilar = false;
   }
 
-  logged(ev, valid) {
+
+  logged(ev, form) {
     ev.preventDefault();
-    console.log(valid);
+    this.authFactory.logged({
+      email: form.email.$viewValue,
+      password: form.password.$viewValue
+    });
+    this.login = false;
   }
 
-  resetFormRegister(ev) {
-    ev.preventDefault();
-    this.registered = {};
-    this.login = {};
+  changePass(form) {
+    this.passSimilar = form.password.$viewValue === form.password_confirm.$viewValue;
   }
 }
 
 AuthorizationController.$inject = ['authFactory'];
 
-export { AuthorizationController };
+export {AuthorizationController};

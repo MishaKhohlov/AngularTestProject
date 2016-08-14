@@ -45,7 +45,7 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('build/**/*.html', ['html']);
+  gulp.watch('build/app/index.html', ['html']);
   gulp.watch(['build/app/**/*.**'], ['js']);
   gulp.watch('build/app/**/*.styl', ['styl']);
 });

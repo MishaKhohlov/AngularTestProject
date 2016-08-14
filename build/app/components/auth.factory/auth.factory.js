@@ -5,14 +5,15 @@ const authorizationFactory = () => {
     dataUser.push(...user);
     console.log(dataUser);
   }
-  return {
-   save: (obj) => {
-     save(obj)
-   }
+
+  function logged(user) {
+    console.log(user);
   }
+
+  return {save, logged}
 };
 
 authorizationFactory.$inject = [];
 
-export { authorizationFactory };
+export {authorizationFactory};
 
