@@ -40719,13 +40719,13 @@ try {
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav role=\"navigation\">\n    <ul>\n      <li ng-repeat=\"link in nav.links\">\n        <a href=\"\" ui-sref=\"{{link.component}}\" ui-sref-active=\"active-page\">{{link.name}}</a>\n      </li>\n    </ul>\n  <div>\n    <button ng-click=\"nav.registerForm = !nav.registerForm; nav.loginForm = false\">Register</button>\n    <button ng-click=\"nav.loginForm = !nav.loginForm; ; nav.registerForm = false\">Login</button>\n  </div>\n  <authorization register=\"nav.registerForm\" login=\"nav.loginForm\"></authorization>\n</nav>\n"
+	module.exports = "<nav role=\"navigation\">\n    <ul>\n      <li ng-repeat=\"link in nav.links\">\n        <a href=\"\" ui-sref=\"{{link.component}}\" ui-sref-active=\"active-page\">{{link.name}}</a>\n      </li>\n    </ul>\n  <div ng-if=\"!nav.authUser\">\n    <button ng-click=\"nav.registerForm = !nav.registerForm; nav.loginForm = false\">Register</button>\n    <button ng-click=\"nav.loginForm = !nav.loginForm; nav.registerForm = false\">Login</button>\n  </div>\n  <div ng-if=\"nav.authUser\">\n    <div>\n      <p>name: {{nav.authUser.name}}</p>\n      <p>email: {{nav.authUser.email}}</p>\n    </div>\n    <button ng-click=\"nav.logout()\">Logout</button>\n  </div>\n  <authorization register=\"nav.registerForm\" login=\"nav.loginForm\"></authorization>\n</nav>\n"
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -40736,22 +40736,36 @@ try {
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var NavbarController = function () {
-	  function NavbarController() {
+	  function NavbarController($scope, authFactory) {
+	    var _this = this;
+	
 	    _classCallCheck(this, NavbarController);
 	
+	    this.authFactory = authFactory;
 	    this.loginForm = false;
 	    this.registerForm = false;
+	    this.authUser = false;
+	    this.$scope = $scope;
+	    this.$scope.$on('logged', function (event, data) {
+	      _this.authUser = data;
+	    });
 	  }
 	
 	  _createClass(NavbarController, [{
-	    key: "$onInit",
+	    key: '$onInit',
 	    value: function $onInit() {}
+	  }, {
+	    key: 'logout',
+	    value: function logout() {
+	      this.authUser = false;
+	      this.authFactory.logout();
+	    }
 	  }]);
 	
 	  return NavbarController;
 	}();
 	
-	NavbarController.$inject = [];
+	NavbarController.$inject = ['$scope', 'authFactory'];
 	
 	exports.NavbarController = NavbarController;
 
@@ -41227,10 +41241,14 @@ try {
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var BlogController = function () {
-	  function BlogController() {
+	  function BlogController($scope, $state) {
 	    _classCallCheck(this, BlogController);
 	
 	    this.page = '';
+	    this.$scope = $scope;
+	    this.$scope.$on('logout', function () {
+	      $state.go('home');
+	    });
 	  }
 	
 	  _createClass(BlogController, [{
@@ -41242,6 +41260,8 @@ try {
 	
 	  return BlogController;
 	}();
+	
+	BlogController.$inject = ['$scope', '$state'];
 	
 	exports.BlogController = BlogController;
 
@@ -41275,31 +41295,33 @@ try {
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var authorizationFactory = function authorizationFactory($q) {
+	var authorizationFactory = function authorizationFactory($rootScope, $q) {
 	  var dataUser = {
 	    'aa@a.aa': {
-	      name: 'Misha',
+	      name: 'Misha Khohlov',
 	      email: 'aa@a.aa',
-	      password: 111111
+	      password: '123456'
 	    }
 	  };
+	
 	  var authUser = false;
 	
 	  function save(user) {
 	    if (!dataUser[user.email]) {
-	      dataUser[user.email] = user;
+	      dataUser[user.email] = Object.assign({}, user);
 	    }
-	    console.log(dataUser);
 	  }
 	
 	  function logout() {
 	    authUser = false;
+	    $rootScope.$broadcast('logout', 'Log out');
 	  }
 	
 	  function logged(user) {
 	    if (dataUser[user.email]) {
-	      if (dataUser[user.email].password === +user.password) {
-	        authUser = user;
+	      if (dataUser[user.email].password === user.password) {
+	        authUser = dataUser[user.email];
+	        $rootScope.$broadcast('logged', authUser);
 	        return;
 	      }
 	      authUser = false;
@@ -41308,19 +41330,18 @@ try {
 	
 	  function auth() {
 	    var prom = $q.defer();
-	    console.log(authUser);
 	    if (authUser) {
 	      prom.resolve(authUser);
 	    } else {
-	      prom.reject("Log out");
+	      prom.reject('Log out');
 	    }
 	    return prom.promise;
 	  }
 	
-	  return { save: save, logged: logged, auth: auth };
+	  return { save: save, logged: logged, auth: auth, logout: logout };
 	};
 	
-	authorizationFactory.$inject = ['$q'];
+	authorizationFactory.$inject = ['$rootScope', '$q'];
 	
 	exports.authorizationFactory = authorizationFactory;
 

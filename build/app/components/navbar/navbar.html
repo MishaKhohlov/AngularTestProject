@@ -4,9 +4,16 @@
         <a href="" ui-sref="{{link.component}}" ui-sref-active="active-page">{{link.name}}</a>
       </li>
     </ul>
-  <div>
+  <div ng-if="!nav.authUser">
     <button ng-click="nav.registerForm = !nav.registerForm; nav.loginForm = false">Register</button>
-    <button ng-click="nav.loginForm = !nav.loginForm; ; nav.registerForm = false">Login</button>
+    <button ng-click="nav.loginForm = !nav.loginForm; nav.registerForm = false">Login</button>
+  </div>
+  <div ng-if="nav.authUser">
+    <div>
+      <p>name: {{nav.authUser.name}}</p>
+      <p>email: {{nav.authUser.email}}</p>
+    </div>
+    <button ng-click="nav.logout()">Logout</button>
   </div>
   <authorization register="nav.registerForm" login="nav.loginForm"></authorization>
 </nav>

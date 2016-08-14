@@ -5,7 +5,6 @@ import { contact } from './contact/contact';
 import { blog } from './blog/blog';
 import { authFact } from './auth.factory/auth';
 
-
 const components = angular.module('app.components', [
   navbar.name,
   home.name,

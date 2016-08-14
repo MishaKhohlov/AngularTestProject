@@ -1,14 +1,25 @@
 class NavbarController {
-  constructor() {
+  constructor($scope, authFactory) {
+    this.authFactory = authFactory;
     this.loginForm = false;
     this.registerForm = false;
+    this.authUser = false;
+    this.$scope = $scope;
+    this.$scope.$on('logged',  (event, data) => {
+      this.authUser = data;
+    })
   }
 
   $onInit() {
+    
+  }
 
+  logout() {
+    this.authUser = false;
+    this.authFactory.logout();
   }
 }
 
-NavbarController.$inject = [];
+NavbarController.$inject = ['$scope', 'authFactory'];
 
 export { NavbarController };

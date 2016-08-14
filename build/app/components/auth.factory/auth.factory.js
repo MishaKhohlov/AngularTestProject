@@ -1,49 +1,50 @@
-const authorizationFactory = ($q) => {
+const authorizationFactory = ($rootScope, $q) => {
   let dataUser = {
     'aa@a.aa': {
-      name: 'Misha',
+      name: 'Misha Khohlov',
       email: 'aa@a.aa',
-      password: 111111
+      password: '123456'
     }
   };
+  
   let authUser = false;
 
   function save(user) {
     if (!dataUser[user.email]) {
-      dataUser[user.email] = user;
+      dataUser[user.email] = Object.assign({}, user);
     }
-    console.log(dataUser);
   }
-  
+
   function logout() {
-    authUser = false
+    authUser = false;
+    $rootScope.$broadcast('logout', 'Log out');
   }
-  
+
   function logged(user) {
     if (dataUser[user.email]) {
-      if (dataUser[user.email].password === +user.password) {
-        authUser = user;
+      if (dataUser[user.email].password === user.password) {
+        authUser = dataUser[user.email];
+        $rootScope.$broadcast('logged', authUser);
         return
       }
       authUser = false
     }
   }
 
-    function auth() {
-      const prom = $q.defer();
-      console.log(authUser);
-      if (authUser) {
-        prom.resolve(authUser)
-      } else {
-        prom.reject("Log out")
-      }
-      return prom.promise
+  function auth() {
+    const prom = $q.defer();
+    if (authUser) {
+      prom.resolve(authUser)
+    } else {
+      prom.reject('Log out')
     }
+    return prom.promise
+  }
 
-    return {save, logged, auth}
-  };
+  return {save, logged, auth, logout}
+};
 
-  authorizationFactory.$inject = ['$q'];
+authorizationFactory.$inject = ['$rootScope', '$q'];
 
-  export {authorizationFactory};
+export {authorizationFactory};
 
