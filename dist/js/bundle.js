@@ -40650,15 +40650,17 @@ try {
 	
 	var _navbar = __webpack_require__(10);
 	
-	var _home = __webpack_require__(22);
+	var _home = __webpack_require__(20);
 	
-	var _contact = __webpack_require__(26);
+	var _contact = __webpack_require__(24);
 	
-	var _blog = __webpack_require__(30);
+	var _blog = __webpack_require__(28);
+	
+	var _auth = __webpack_require__(32);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var components = _angular2.default.module('app.components', [_navbar.navbar.name, _home.home.name, _contact.contact.name, _blog.blog.name]);
+	var components = _angular2.default.module('app.components', [_navbar.navbar.name, _home.home.name, _contact.contact.name, _blog.blog.name, _auth.authFact.name]);
 	
 	exports.components = components;
 
@@ -40770,15 +40772,13 @@ try {
 	
 	var _authorization = __webpack_require__(15);
 	
-	var _auth = __webpack_require__(18);
+	var _emailValidation = __webpack_require__(18);
 	
-	var _emailValidation = __webpack_require__(20);
-	
-	var _fullNameValidation = __webpack_require__(21);
+	var _fullNameValidation = __webpack_require__(19);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var authorization = exports.authorization = _angular2.default.module('authorization', [_auth.authFact.name]).directive('emailValid', _emailValidation.emailValidation).directive('nameValid', _fullNameValidation.nameValidation).component('authorization', _authorization.authorizationComponent);
+	var authorization = exports.authorization = _angular2.default.module('authorization', []).directive('emailValid', _emailValidation.emailValidation).directive('nameValid', _fullNameValidation.nameValidation).component('authorization', _authorization.authorizationComponent);
 
 /***/ },
 /* 15 */
@@ -40882,55 +40882,6 @@ try {
 
 /***/ },
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.authFact = undefined;
-	
-	var _angular = __webpack_require__(4);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _auth = __webpack_require__(19);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var authFact = exports.authFact = _angular2.default.module('authFact', []).factory('authFactory', _auth.authorizationFactory);
-
-/***/ },
-/* 19 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var authorizationFactory = function authorizationFactory() {
-	  var dataUser = [];
-	
-	  function save() {
-	    dataUser.push.apply(dataUser, arguments);
-	    console.log(dataUser);
-	  }
-	
-	  function logged(user) {
-	    console.log(user);
-	  }
-	
-	  return { save: save, logged: logged };
-	};
-	
-	authorizationFactory.$inject = [];
-	
-	exports.authorizationFactory = authorizationFactory;
-
-/***/ },
-/* 20 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -40964,7 +40915,7 @@ try {
 	exports.emailValidation = emailValidation;
 
 /***/ },
-/* 21 */
+/* 19 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -40995,7 +40946,7 @@ try {
 	exports.nameValidation = nameValidation;
 
 /***/ },
-/* 22 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41009,7 +40960,7 @@ try {
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _home = __webpack_require__(23);
+	var _home = __webpack_require__(21);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -41026,7 +40977,7 @@ try {
 	}).component('home', _home.homeComponent);
 
 /***/ },
-/* 23 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41036,11 +40987,11 @@ try {
 	});
 	exports.homeComponent = undefined;
 	
-	var _home = __webpack_require__(24);
+	var _home = __webpack_require__(22);
 	
 	var _home2 = _interopRequireDefault(_home);
 	
-	var _home3 = __webpack_require__(25);
+	var _home3 = __webpack_require__(23);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -41051,13 +41002,13 @@ try {
 	};
 
 /***/ },
-/* 24 */
+/* 22 */
 /***/ function(module, exports) {
 
 	module.exports = "<section class=\"home\">\n  <h1>{{home.page}}</h1>\n</section>\n"
 
 /***/ },
-/* 25 */
+/* 23 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41090,7 +41041,7 @@ try {
 	exports.HomeController = HomeController;
 
 /***/ },
-/* 26 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41104,7 +41055,7 @@ try {
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _contact = __webpack_require__(27);
+	var _contact = __webpack_require__(25);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -41116,7 +41067,7 @@ try {
 	}).component('contact', _contact.contactComponent);
 
 /***/ },
-/* 27 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41126,11 +41077,11 @@ try {
 	});
 	exports.contactComponent = undefined;
 	
-	var _contact = __webpack_require__(28);
+	var _contact = __webpack_require__(26);
 	
 	var _contact2 = _interopRequireDefault(_contact);
 	
-	var _contact3 = __webpack_require__(29);
+	var _contact3 = __webpack_require__(27);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -41141,13 +41092,13 @@ try {
 	};
 
 /***/ },
-/* 28 */
+/* 26 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"gallery\">\n  <h1>{{cont.page}}</h1>\n  <p>{{cont.testPromises}}</p>\n</div>\n"
 
 /***/ },
-/* 29 */
+/* 27 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41200,7 +41151,7 @@ try {
 	exports.ContactController = ContactController;
 
 /***/ },
-/* 30 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41214,19 +41165,24 @@ try {
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _blog = __webpack_require__(31);
+	var _blog = __webpack_require__(29);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var blog = exports.blog = _angular2.default.module('blog', []).config(function ($stateProvider) {
 	  $stateProvider.state('blog', {
 	    url: '/blog',
-	    template: '<blog></blog>'
+	    template: '<blog></blog>',
+	    resolve: {
+	      promiseObj: function promiseObj(authFactory) {
+	        return authFactory.auth();
+	      }
+	    }
 	  });
 	}).component('blog', _blog.blogComponent);
 
 /***/ },
-/* 31 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41236,11 +41192,11 @@ try {
 	});
 	exports.blogComponent = undefined;
 	
-	var _blog = __webpack_require__(32);
+	var _blog = __webpack_require__(30);
 	
 	var _blog2 = _interopRequireDefault(_blog);
 	
-	var _blog3 = __webpack_require__(33);
+	var _blog3 = __webpack_require__(31);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -41251,13 +41207,13 @@ try {
 	};
 
 /***/ },
-/* 32 */
+/* 30 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"blog\">\n  <h1>{{blog.page}}</h1>\n</div>\n"
 
 /***/ },
-/* 33 */
+/* 31 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41288,6 +41244,85 @@ try {
 	}();
 	
 	exports.BlogController = BlogController;
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.authFact = undefined;
+	
+	var _angular = __webpack_require__(4);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _auth = __webpack_require__(33);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var authFact = exports.authFact = _angular2.default.module('authFact', []).factory('authFactory', _auth.authorizationFactory);
+
+/***/ },
+/* 33 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var authorizationFactory = function authorizationFactory($q) {
+	  var dataUser = {
+	    'aa@a.aa': {
+	      name: 'Misha',
+	      email: 'aa@a.aa',
+	      password: 111111
+	    }
+	  };
+	  var authUser = false;
+	
+	  function save(user) {
+	    if (!dataUser[user.email]) {
+	      dataUser[user.email] = user;
+	    }
+	    console.log(dataUser);
+	  }
+	
+	  function logout() {
+	    authUser = false;
+	  }
+	
+	  function logged(user) {
+	    if (dataUser[user.email]) {
+	      if (dataUser[user.email].password === +user.password) {
+	        authUser = user;
+	        return;
+	      }
+	      authUser = false;
+	    }
+	  }
+	
+	  function auth() {
+	    var prom = $q.defer();
+	    console.log(authUser);
+	    if (authUser) {
+	      prom.resolve(authUser);
+	    } else {
+	      prom.reject("Log out");
+	    }
+	    return prom.promise;
+	  }
+	
+	  return { save: save, logged: logged, auth: auth };
+	};
+	
+	authorizationFactory.$inject = ['$q'];
+	
+	exports.authorizationFactory = authorizationFactory;
 
 /***/ }
 /******/ ]);

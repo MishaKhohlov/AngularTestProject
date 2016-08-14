@@ -1,19 +1,49 @@
-const authorizationFactory = () => {
-  let dataUser = [];
+const authorizationFactory = ($q) => {
+  let dataUser = {
+    'aa@a.aa': {
+      name: 'Misha',
+      email: 'aa@a.aa',
+      password: 111111
+    }
+  };
+  let authUser = false;
 
-  function save(...user) {
-    dataUser.push(...user);
+  function save(user) {
+    if (!dataUser[user.email]) {
+      dataUser[user.email] = user;
+    }
     console.log(dataUser);
   }
-
+  
+  function logout() {
+    authUser = false
+  }
+  
   function logged(user) {
-    console.log(user);
+    if (dataUser[user.email]) {
+      if (dataUser[user.email].password === +user.password) {
+        authUser = user;
+        return
+      }
+      authUser = false
+    }
   }
 
-  return {save, logged}
-};
+    function auth() {
+      const prom = $q.defer();
+      console.log(authUser);
+      if (authUser) {
+        prom.resolve(authUser)
+      } else {
+        prom.reject("Log out")
+      }
+      return prom.promise
+    }
 
-authorizationFactory.$inject = [];
+    return {save, logged, auth}
+  };
 
-export {authorizationFactory};
+  authorizationFactory.$inject = ['$q'];
+
+  export {authorizationFactory};
 
