@@ -6,7 +6,7 @@ export const blog = angular.module('blog', [])
   $stateProvider.state('blog', {
     url: '/blog',
     template: '<blog></blog>',
-    resolve: {
+    resolve: {/* @ngInject */
       promiseObj: (authFactory) => {
         return authFactory.auth();
       }

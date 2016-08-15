@@ -1,3 +1,4 @@
+/* @ngInject */
 const authorizationFactory = ($rootScope, $q) => {
   let dataUser = {
     'aa@a.aa': {

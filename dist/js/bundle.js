@@ -40752,9 +40752,6 @@ try {
 	  }
 	
 	  _createClass(NavbarController, [{
-	    key: '$onInit',
-	    value: function $onInit() {}
-	  }, {
 	    key: 'logout',
 	    value: function logout() {
 	      this.authUser = false;
@@ -40857,9 +40854,6 @@ try {
 	  }
 	
 	  _createClass(AuthorizationController, [{
-	    key: '$onInit',
-	    value: function $onInit() {}
-	  }, {
 	    key: 'registered',
 	    value: function registered(ev, form) {
 	      ev.preventDefault();
@@ -41177,7 +41171,7 @@ try {
 	  $stateProvider.state('blog', {
 	    url: '/blog',
 	    template: '<blog></blog>',
-	    resolve: {
+	    resolve: { /* @ngInject */
 	      promiseObj: function promiseObj(authFactory) {
 	        return authFactory.auth();
 	      }
@@ -41285,6 +41279,7 @@ try {
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	/* @ngInject */
 	var authorizationFactory = function authorizationFactory($rootScope, $q) {
 	  var dataUser = {
 	    'aa@a.aa': {
