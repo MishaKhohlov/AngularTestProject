@@ -7,11 +7,7 @@ class NavbarController {
     this.$scope = $scope;
     this.$scope.$on('logged',  (event, data) => {
       this.authUser = data;
-    })
-  }
-
-  $onInit() {
-    
+    });
   }
 
   logout() {

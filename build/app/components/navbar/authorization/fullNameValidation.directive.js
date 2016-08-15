@@ -9,13 +9,13 @@ const nameValidation = () => {
     require: '?ngModel',
     link: function (scope, elm, attrs, ctrl) {
       ctrl.$validators.username = function (modelValue) {
-        if(modelValue) {
+        if (modelValue) {
           const arr = modelValue.split(' ');
-          if(arr.length === 2 && WORD.test(arr[0]) && WORD.test(arr[1])) {
-            return true
+          if (arr.length === 2 && WORD.test(arr[0]) && WORD.test(arr[1])) {
+            return true;
           }
         }
-        return false
+        return false;
       };
     }
   };

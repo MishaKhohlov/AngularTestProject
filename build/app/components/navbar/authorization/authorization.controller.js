@@ -9,10 +9,6 @@ class AuthorizationController {
     this.passSimilar = false;
   }
 
-  $onInit() {
-
-  }
-
   registered(ev, form) {
     ev.preventDefault();
     this.authFactory.save({
@@ -23,7 +19,6 @@ class AuthorizationController {
     this.register = false;
     this.passSimilar = false;
   }
-
 
   logged(ev, form) {
     ev.preventDefault();

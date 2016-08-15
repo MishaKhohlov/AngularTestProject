@@ -6,7 +6,7 @@ const authorizationFactory = ($rootScope, $q) => {
       password: '123456'
     }
   };
-  
+
   let authUser = false;
 
   function save(user) {
@@ -25,23 +25,23 @@ const authorizationFactory = ($rootScope, $q) => {
       if (dataUser[user.email].password === user.password) {
         authUser = dataUser[user.email];
         $rootScope.$broadcast('logged', authUser);
-        return
+        return;
       }
-      authUser = false
+      authUser = false;
     }
   }
 
   function auth() {
     const prom = $q.defer();
     if (authUser) {
-      prom.resolve(authUser)
+      prom.resolve(authUser);
     } else {
-      prom.reject('Log out')
+      prom.reject('Log out');
     }
-    return prom.promise
+    return prom.promise;
   }
 
-  return {save, logged, auth, logout}
+  return {save, logged, auth, logout};
 };
 
 authorizationFactory.$inject = ['$rootScope', '$q'];

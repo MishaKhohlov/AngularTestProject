@@ -3,8 +3,8 @@ class BlogController {
     this.page = '';
     this.$scope = $scope;
     this.$scope.$on('logout',  () => {
-      $state.go('home')
-    })
+      $state.go('home');
+    });
   }
 
   $onInit() {

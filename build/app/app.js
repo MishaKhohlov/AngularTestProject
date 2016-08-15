@@ -4,7 +4,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngAnimate from 'angular-animate';
 
-import { components } from './components/components';
+import {components} from './components/components';
 
 angular.module('app', [
   uiRouter,

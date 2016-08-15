@@ -1,6 +1,6 @@
 class HomeController {
   constructor() {
-    this.page = ''
+    this.page = '';
   }
 
   $onInit() {

@@ -27,6 +27,7 @@
     "gulp-sourcemaps": "latest",
     "gulp-stylus": "latest",
     "gulp-uglify": "latest",
+    "jscs": "^3.0.7",
     "ng-annotate-loader": "^0.1.1",
     "raw-loader": "^0.5.1",
     "vinyl-named": "latest",

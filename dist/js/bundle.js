@@ -41117,7 +41117,7 @@ try {
 /* 26 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"gallery\">\n  <h1>{{cont.page}}</h1>\n  <p>{{cont.testPromises}}</p>\n</div>\n"
+	module.exports = "<div class=\"contact\">\n  <h1>{{cont.page}}</h1>\n</div>\n"
 
 /***/ },
 /* 27 */
@@ -41134,41 +41134,23 @@ try {
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var ContactController = function () {
-	  function ContactController($rootScope) {
+	  function ContactController() {
 	    _classCallCheck(this, ContactController);
 	
-	    this.$rootScope = $rootScope;
 	    this.page = '';
-	    this.testPromises = '';
 	  }
 	
 	  _createClass(ContactController, [{
 	    key: '$onInit',
 	    value: function $onInit() {
 	      this.page = 'Contact';
-	      this.loadRandom();
-	    }
-	  }, {
-	    key: 'loadRandom',
-	    value: function loadRandom() {
-	      var _this = this;
-	
-	      var promise = new Promise(function (resolve, reject) {
-	        setTimeout(function () {
-	          resolve('test async await');
-	        }, 2000);
-	      });
-	      promise.then(function (data) {
-	        _this.testPromises = data;
-	        _this.$rootScope.$apply();
-	      });
 	    }
 	  }]);
 	
 	  return ContactController;
 	}();
 	
-	ContactController.$inject = ['$rootScope'];
+	ContactController.$inject = [];
 	
 	exports.ContactController = ContactController;
 
