@@ -5,6 +5,7 @@ class AuthorizationController {
     this.errorLong = 'Is too long.';
     this.invalidValue = 'Enter a valid data';
     this.passwordConfirm = 'Password is not similar';
+    this.regExpPass = '\\w+';
     this.passSimilar = false;
   }
 

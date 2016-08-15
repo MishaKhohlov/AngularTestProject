@@ -32,17 +32,20 @@
             {{auth.invalidValue}}</p>
         </div>
       </div>
-
       <div class="control-group">
         <!-- Password-->
         <label class="control-label" for="password">Password</label>
         <div class="controls">
-          <input type="password" name="password" id="password" placeholder="password" class="input-xlarge"
-                 ng-minlength="6" ng-model="register.password" ng-change="auth.changePass(registerForm)" required>
+          <input type="password" name="password" id="password" placeholder="" class="input-xlarge"
+                 ng-minlength="6" ng-model="register.password" ng-pattern="auth.regExpPass"
+                 ng-change="auth.changePass(registerForm)" required>
           <p class="help-block">Password should be at least 6 characters</p>
           <p ng-show="registerForm.password.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
           <p ng-show="registerForm.password.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
-          <p ng-show="!auth.passSimilar && !registerForm.password.$pristine && !registerForm.password_confirm.$pristine" class="help-block bg-danger">
+          <p ng-show="!registerForm.password.$valid && !registerForm.password.$pristine" class="help-block bg-danger">
+            {{auth.invalidValue}}</p>
+          <p ng-show="!auth.passSimilar && !registerForm.password.$pristine && !registerForm.password_confirm.$pristine"
+             class="help-block bg-danger">
             {{auth.passwordConfirm}}</p>
         </div>
       </div>
@@ -53,13 +56,17 @@
         <div class="controls">
           <input type="password" id="password_confirm" class="input-xlarge" name="password_confirm"
                  placeholder="" ng-minlength="6" ng-maxlength="30" ng-model="register.passwordConfirm"
+                 ng-pattern="auth.regExpPass"
                  ng-change="auth.changePass(registerForm)" required>
           <p class="help-block">Please confirm password</p>
           <p ng-show="registerForm.password_confirm.$error.minlength" class="help-block bg-danger">
             {{auth.errorShort}}</p>
           <p ng-show="registerForm.password_confirm.$error.maxlength" class="help-block bg-danger">
             {{auth.errorLong}}</p>
-          <p ng-show="!auth.passSimilar && !registerForm.password.$pristine && !registerForm.password_confirm.$pristine" class="help-block bg-danger">
+          <p ng-show="!registerForm.password_confirm.$valid && !registerForm.password_confirm.$pristine" class="help-block bg-danger">
+            {{auth.invalidValue}}</p>
+          <p ng-show="!auth.passSimilar && !registerForm.password.$pristine && !registerForm.password_confirm.$pristine"
+             class="help-block bg-danger">
             {{auth.passwordConfirm}}</p>
         </div>
       </div>
@@ -102,10 +109,12 @@
         <label class="control-label" for="password_login">Password</label>
         <div class="controls">
           <input type="password" name="password" id="password_login" placeholder="" class="input-xlarge"
-                 ng-minlength="6" ng-maxlength="30" ng-model="login.password" required>
+                 ng-minlength="6" ng-maxlength="30" ng-model="login.password" ng-pattern="auth.regExpPass" required>
           <p class="help-block">Password should be at least 6 characters</p>
           <p ng-show="loginForm.password.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
           <p ng-show="loginForm.password.$error.maxlength" class="help-block bg-danger">{{auth.errorLong}}</p>
+          <p ng-show="!loginForm.password.$valid && !loginForm.password.$pristine" class="help-block bg-danger">
+            {{auth.invalidValue}}</p>
         </div>
       </div>
 
