@@ -1,7 +1,19 @@
-const emailValidation = () => {
-  //RegExp for email with two symbol after '.', but hard support and expand solution
-  //const RegExp = /([a-zA-Z]{2,})+@[a-zA-Z]+?\.[a-zA-Z]{2,}/;
+/**
+ * @ngdoc directive
+ * @name authorization.directive:emailValid
+ * @restrict A
+ * @scope
+ * form ngModel
+ * @description
+ * This validation data in email form through regExp and js logic.(example aa@a.aa)
+ * You can use another solution:
+ * RegExp for email with two symbol after '.', but hard support and expand solution
+ * const RegExp = /([a-zA-Z]{2,})+@[a-zA-Z]+?\.[a-zA-Z]{2,}/;
+ * @example
+ *  <input type="email" name="email" ng-model="register.mail" email-valid>
+ */
 
+const emailValidation = () => {
   const EMAIL_REGEXP = /^[^@]+@[^@.]+\.[^@]+$/i;
 
   return {

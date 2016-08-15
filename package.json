@@ -4,7 +4,8 @@
   "description": "my test project with AngularJs",
   "main": "main.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "doc": "jsdoc -d documentation/ ./build/app"
   },
   "author": "MishaKhohlov",
   "license": "ISC",
@@ -28,6 +29,7 @@
     "gulp-stylus": "latest",
     "gulp-uglify": "latest",
     "jscs": "^3.0.7",
+    "jsdoc": "^3.4.0",
     "ng-annotate-loader": "^0.1.1",
     "raw-loader": "^0.5.1",
     "vinyl-named": "latest",

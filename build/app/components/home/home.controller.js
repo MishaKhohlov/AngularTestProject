@@ -1,9 +1,13 @@
+/**
+ * @ngdoc controller
+ * @name home.controller:HomeController
+ * @memberOf angular.home
+ * @description
+ * Nothing.
+ */
+
 class HomeController {
   constructor() {
-    this.page = '';
-  }
-
-  $onInit() {
     this.page = 'Home page';
   }
 }

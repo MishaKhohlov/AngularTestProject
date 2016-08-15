@@ -24,12 +24,12 @@ gulp.task('html', function () {
 });
 
 gulp.task('styl', function () {
-  gulp.src("build/app/app.styl")
+  gulp.src('build/app/app.styl')
     .pipe(sourcemaps.init())
     .pipe(stylus({
       // compress: true
     }))
-    .pipe(gulp.dest("dist/css"))
+    .pipe(gulp.dest('dist/css'))
     .pipe(ignoreErrors())
     .pipe(sourcemaps.write('.'))
     .pipe(browserSync.stream());
@@ -38,7 +38,7 @@ gulp.task('styl', function () {
 gulp.task('browser-sync', function () {
   browserSync.init({
     server: {
-      baseDir: "./dist/"
+      baseDir: './dist/'
     },
     open: false
   });
@@ -52,8 +52,8 @@ gulp.task('watch', function () {
 
 gulp.task('default', [
   'html',
-  'js',
   'styl',
+  'js',
   'browser-sync',
   'watch'
 ]);

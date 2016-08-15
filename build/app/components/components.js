@@ -5,6 +5,13 @@ import { contact } from './contact/contact';
 import { blog } from './blog/blog';
 import { authFact } from './auth.factory/auth';
 
+/**
+ * @ngdoc module
+ * @namespace app.components
+ * @description
+ * A module that can connect general dependent components.
+ */
+
 const components = angular.module('app.components', [
   navbar.name,
   home.name,

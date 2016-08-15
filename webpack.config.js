@@ -1,9 +1,10 @@
-var webpack = require("webpack");
-// var ExtractTextPlugin = require("extract-text-webpack-plugin");
+// var webpack = require('webpack');
+// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './build/app/app.js',
   output: {path: __dirname, filename: 'bundle.js'},
+  // devtool: 'source-map',
   module: {
     loaders: [
       {test: /\.html$/, loader: 'raw'},
@@ -18,9 +19,8 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-map',
   plugins: [
     //new ExtractTextPlugin('bundel.css')
     //new webpack.optimize.UglifyJsPlugin({minimize: true})
   ]
-};
+}
