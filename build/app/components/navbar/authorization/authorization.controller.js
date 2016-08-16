@@ -1,7 +1,7 @@
 /**
- * @ngdoc controller
- * @name authorization.controller:AuthorizationController
- * @memberOf angular.authorization
+ * @type controller
+ * @class authorization.Controller:AuthorizationController
+ * @memberOf authorization
  * @description
  * Implement register and loin form, validation and broadcast data to factory
  */
@@ -18,11 +18,11 @@ class AuthorizationController {
   }
 
   /**
-   * @ngdoc method
+   * @method
    * @name registered
-   * @methodOf authorization.controller:AuthorizationController
-   * @param {Object} ev event form
-   * @param {Object} form form obj with data from input
+   * @memberOf authorization.controller:AuthorizationController
+   * @param {Object} ev - event form
+   * @param {Object} form - form obj with data from input
    * @description
    * This method handle to the factory method and implement logout
    */
@@ -38,11 +38,11 @@ class AuthorizationController {
   }
 
   /**
-   * @ngdoc method
+   * @method
    * @name logged
-   * @methodOf authorization.controller:AuthorizationController
-   * @param {Object} ev event form
-   * @param {Object} form form obj with data from input
+   * @memberOf authorization.controller:AuthorizationController
+   * @param {Object} ev - event form
+   * @param {Object} form - form obj with data from input
    * @description
    * This method handle to the factory method and implement logged
    */
@@ -56,10 +56,10 @@ class AuthorizationController {
   }
 
   /**
-   * @ngdoc method
-   * @name hangePass
-   * @methodOf authorization.controller:AuthorizationController
-   * @param {Object} form obj with data from input
+   * @method
+   * @name changePass
+   * @memberOf authorization.controller:AuthorizationController
+   * @param {Object} form - obj with data from input
    * @description
    * compare password если они одинаковые return true
    */

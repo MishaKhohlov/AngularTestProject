@@ -1,11 +1,11 @@
 /**
- * @ngdoc controller
- * @name contact.controller:ContactController
- * @memberOf angular.contact
+ * @type controller
+ * @class contact.controller:ContactController
+ * @memberOf contact
  * @description
  * Nothing.
  */
-  
+
 class ContactController {
   constructor() {
     this.page = 'Contact';

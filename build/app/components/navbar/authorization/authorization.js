@@ -4,8 +4,9 @@ import {emailValidation} from './emailValidation.directive';
 import {nameValidation} from './fullNameValidation.directive';
 
 /**
- * @ngdoc module
- * @namespace app.components.authorization
+ * @module
+ * @namespace authorization
+ * @class app.components.authorization:Module authorization
  * @description
  * A module that can connect directive emailValid and nameValid.
  */

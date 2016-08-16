@@ -66,10 +66,13 @@ try {
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
+	 * @module
+	 * @namespace appModule
+	 * @class app
 	 * @description
-	 * A module that can be connect general dependence.
-	 * @namespace angular_module
+	 * A module that can connect general dependencies and component module.
 	 */
+
 	_angular2.default.module('app', [_angularUiRouter2.default, _angularAnimate2.default, _components.components.name]).component('app', _app.appComponent);
 
 /***/ },
@@ -114,6 +117,14 @@ try {
 	});
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	/**
+	 * @type controller
+	 * @class app.Controller:AppController
+	 * @memberOf app
+	 * @description
+	 * Controller in which stored data about link and state.
+	 */
 
 	var AppController = function AppController() {
 	  _classCallCheck(this, AppController);
@@ -40665,6 +40676,14 @@ try {
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/**
+	 * @ngdoc module
+	 * @namespace components
+	 * @class app.components:Module components
+	 * @description
+	 * A module that can connect general dependent components.
+	 */
+
 	var components = _angular2.default.module('app.components', [_navbar.navbar.name, _home.home.name, _contact.contact.name, _blog.blog.name, _auth.authFact.name]);
 
 	exports.components = components;
@@ -40689,6 +40708,14 @@ try {
 	var _authorization = __webpack_require__(14);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @module
+	 * @namespace navbar
+	 * @class app.components.navbar:Module navbar
+	 * @description
+	 * A module that can connect authorization components in dependencies.
+	 */
 
 	var navbar = exports.navbar = _angular2.default.module('navbar', [_authorization.authorization.name]).component('navbar', _navbar.navbarComponent);
 
@@ -40740,6 +40767,14 @@ try {
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	/**
+	 * @type controller
+	 * @class navbar.Controller:NavbarController
+	 * @memberOf navbar
+	 * @description
+	 * Open/hide autorization form, show data about user and implement logout.
+	 */
+
 	var NavbarController = function () {
 	  function NavbarController($scope, authFactory) {
 	    var _this = this;
@@ -40755,6 +40790,15 @@ try {
 	      _this.authUser = data;
 	    });
 	  }
+
+	  /**
+	   * @method
+	   * @name logout
+	   * @memberOf navbar.Controller:NavbarController
+	   * @description
+	   * This method handle to the factory method and implement logout
+	   */
+
 
 	  _createClass(NavbarController, [{
 	    key: 'logout',
@@ -40794,6 +40838,13 @@ try {
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/**
+	 * @module
+	 * @namespace authorization
+	 * @class app.components.authorization:Module authorization
+	 * @description
+	 * A module that can connect directive emailValid and nameValid.
+	 */
 	var authorization = exports.authorization = _angular2.default.module('authorization', []).directive('emailValid', _emailValidation.emailValidation).directive('nameValid', _fullNameValidation.nameValidation).component('authorization', _authorization.authorizationComponent);
 
 /***/ },
@@ -40829,7 +40880,7 @@ try {
 /* 16 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"container\" ng-if=\"auth.register\">\n  <a href=\"\" ng-click=\"auth.register = !auth.register\">Close</a>\n  <form class=\"form-horizontal form-register\" name=\"registerForm\" action='' method=\"POST\" novalidate>\n    <fieldset>\n      <div id=\"legend\">\n        <legend class=\"\">Register</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- Full name -->\n        <label class=\"control-label\" for=\"username\">Full name</label>\n        <div class=\"controls\">\n          <input type=\"text\" name=\"username\" id=\"username\" placeholder=\"\" class=\"input-xlarge\"\n                 ng-minlength=\"2\" ng-maxlength=\"25\" ng-model=\"register.username\" name-valid required>\n          <p class=\"help-block\">Username can contain any letters or numbers, without spaces</p>\n          <p ng-show=\"registerForm.username.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.username.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"registerForm.username.$invalid && !registerForm.username.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"email\" name=\"email\" id=\"email\" placeholder=\"\" class=\"input-xlarge\" ng-minlength=\"3\"\n                 ng-maxlength=\"25\" ng-model=\"register.mail\" email-valid required>\n          <p class=\"help-block\">Please provide your E-mail</p>\n          <p ng-show=\"registerForm.email.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.email.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"registerForm.email.$invalid && !registerForm.email.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n        </div>\n      </div>\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" name=\"password\" id=\"password\" placeholder=\"\" class=\"input-xlarge\"\n                 ng-minlength=\"6\" ng-model=\"register.password\" ng-pattern=\"auth.regExpPass\"\n                 ng-change=\"auth.changePass(registerForm)\" required>\n          <p class=\"help-block\">Password should be at least 6 characters</p>\n          <p ng-show=\"registerForm.password.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.password.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"!registerForm.password.$valid && !registerForm.password.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n          <p ng-show=\"!auth.passSimilar && !registerForm.password.$pristine && !registerForm.password_confirm.$pristine\"\n             class=\"help-block bg-danger\">\n            {{auth.passwordConfirm}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password -->\n        <label class=\"control-label\" for=\"password_confirm\">Password (Confirm)</label>\n        <div class=\"controls\">\n          <input type=\"password\" id=\"password_confirm\" class=\"input-xlarge\" name=\"password_confirm\"\n                 placeholder=\"\" ng-minlength=\"6\" ng-maxlength=\"30\" ng-model=\"register.passwordConfirm\"\n                 ng-pattern=\"auth.regExpPass\"\n                 ng-change=\"auth.changePass(registerForm)\" required>\n          <p class=\"help-block\">Please confirm password</p>\n          <p ng-show=\"registerForm.password_confirm.$error.minlength\" class=\"help-block bg-danger\">\n            {{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.password_confirm.$error.maxlength\" class=\"help-block bg-danger\">\n            {{auth.errorLong}}</p>\n          <p ng-show=\"!registerForm.password_confirm.$valid && !registerForm.password_confirm.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n          <p ng-show=\"!auth.passSimilar && !registerForm.password.$pristine && !registerForm.password_confirm.$pristine\"\n             class=\"help-block bg-danger\">\n            {{auth.passwordConfirm}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\" ng-disabled=\"registerForm.$invalid || auth.passSimila\"\n                  ng-click=\"auth.registered($event, registerForm)\">Register\n          </button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>\n\n<div class=\"container\" ng-if=\"auth.login\">\n  <a href=\"\" ng-click=\"auth.login = !auth.login\">Close</a>\n  <form class=\"form-horizontal form-login\" name=\"loginForm\" action='' method=\"POST\" novalidate>\n    <fieldset>\n      <div>\n        <legend class=\"\">Login</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email_login\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"email\" id=\"email_login\" name=\"email\" placeholder=\"\" class=\"input-xlarge\" ng-minlength=\"3\"\n                 ng-maxlength=\"25\" ng-model=\"login.mail\" email-valid required>\n          <p class=\"help-block\">Please provide your E-mail</p>\n          <p ng-show=\"registerForm.email.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.email.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"loginForm.email.$invalid && !loginForm.email.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password_login\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" name=\"password\" id=\"password_login\" placeholder=\"\" class=\"input-xlarge\"\n                 ng-minlength=\"6\" ng-maxlength=\"30\" ng-model=\"login.password\" ng-pattern=\"auth.regExpPass\" required>\n          <p class=\"help-block\">Password should be at least 6 characters</p>\n          <p ng-show=\"loginForm.password.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"loginForm.password.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"!loginForm.password.$valid && !loginForm.password.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\" ng-disabled=\"loginForm.$invalid\"\n                  ng-click=\"auth.logged($event, loginForm)\">\n            Login\n          </button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>"
+	module.exports = "<div class=\"container\" ng-if=\"auth.register\">\n  <a href=\"\" ng-click=\"auth.register = !auth.register\">Close</a>\n  <form class=\"form-horizontal form-register\" name=\"registerForm\" action='' method=\"POST\" novalidate>\n    <fieldset>\n      <div id=\"legend\">\n        <legend class=\"\">Register</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- Full name -->\n        <label class=\"control-label\" for=\"username\">Full name</label>\n        <div class=\"controls\">\n          <input type=\"text\" name=\"username\" id=\"username\" placeholder=\"\" class=\"input-xlarge\"\n                 ng-minlength=\"2\" ng-maxlength=\"25\" ng-model=\"register.username\" name-valid required>\n          <p class=\"help-block\">Username can contain any letters or numbers, without spaces</p>\n          <p ng-show=\"registerForm.username.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.username.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"registerForm.username.$invalid && !registerForm.username.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"email\" name=\"email\" id=\"email\" placeholder=\"\" class=\"input-xlarge\" ng-minlength=\"3\"\n                 ng-maxlength=\"25\" ng-model=\"register.mail\" email-valid required>\n          <p class=\"help-block\">Please provide your E-mail</p>\n          <p ng-show=\"registerForm.email.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.email.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"registerForm.email.$invalid && !registerForm.email.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" name=\"password\" id=\"password\" placeholder=\"\" class=\"input-xlarge\"\n                 ng-minlength=\"6\" ng-model=\"register.password\" ng-pattern=\"auth.regExpPass\"\n                 ng-change=\"auth.changePass(registerForm)\" required>\n          <p class=\"help-block\">Password should be at least 6 characters</p>\n          <p ng-show=\"registerForm.password.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.password.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"!registerForm.password.$valid && !registerForm.password.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n          <p ng-show=\"!auth.passSimilar && !registerForm.password.$pristine && !registerForm.password_confirm.$pristine\"\n             class=\"help-block bg-danger\">\n            {{auth.passwordConfirm}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password -->\n        <label class=\"control-label\" for=\"password_confirm\">Password (Confirm)</label>\n        <div class=\"controls\">\n          <input type=\"password\" id=\"password_confirm\" class=\"input-xlarge\" name=\"password_confirm\"\n                 placeholder=\"\" ng-minlength=\"6\" ng-maxlength=\"30\" ng-model=\"register.passwordConfirm\"\n                 ng-pattern=\"auth.regExpPass\"\n                 ng-change=\"auth.changePass(registerForm)\" required>\n          <p class=\"help-block\">Please confirm password</p>\n          <p ng-show=\"registerForm.password_confirm.$error.minlength\" class=\"help-block bg-danger\">\n            {{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.password_confirm.$error.maxlength\" class=\"help-block bg-danger\">\n            {{auth.errorLong}}</p>\n          <p ng-show=\"!registerForm.password_confirm.$valid && !registerForm.password_confirm.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n          <p ng-show=\"!auth.passSimilar && !registerForm.password.$pristine && !registerForm.password_confirm.$pristine\"\n             class=\"help-block bg-danger\">\n            {{auth.passwordConfirm}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\" ng-disabled=\"registerForm.$invalid || auth.passSimila\"\n                  ng-click=\"auth.registered($event, registerForm)\">Register\n          </button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>\n\n<div class=\"container\" ng-if=\"auth.login\">\n  <a href=\"\" ng-click=\"auth.login = !auth.login\">Close</a>\n  <form class=\"form-horizontal form-login\" name=\"loginForm\" action='' method=\"POST\" novalidate>\n    <fieldset>\n      <div>\n        <legend class=\"\">Login</legend>\n      </div>\n      <div class=\"control-group\">\n        <!-- E-mail -->\n        <label class=\"control-label\" for=\"email_login\">E-mail</label>\n        <div class=\"controls\">\n          <input type=\"email\" id=\"email_login\" name=\"email\" placeholder=\"\" class=\"input-xlarge\" ng-minlength=\"3\"\n                 ng-maxlength=\"25\" ng-model=\"login.mail\" email-valid required>\n          <p class=\"help-block\">Please provide your E-mail</p>\n          <p ng-show=\"registerForm.email.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"registerForm.email.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"loginForm.email.$invalid && !loginForm.email.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Password-->\n        <label class=\"control-label\" for=\"password_login\">Password</label>\n        <div class=\"controls\">\n          <input type=\"password\" name=\"password\" id=\"password_login\" placeholder=\"\" class=\"input-xlarge\"\n                 ng-minlength=\"6\" ng-maxlength=\"30\" ng-model=\"login.password\" ng-pattern=\"auth.regExpPass\" required>\n          <p class=\"help-block\">Password should be at least 6 characters</p>\n          <p ng-show=\"loginForm.password.$error.minlength\" class=\"help-block bg-danger\">{{auth.errorShort}}</p>\n          <p ng-show=\"loginForm.password.$error.maxlength\" class=\"help-block bg-danger\">{{auth.errorLong}}</p>\n          <p ng-show=\"!loginForm.password.$valid && !loginForm.password.$pristine\" class=\"help-block bg-danger\">\n            {{auth.invalidValue}}</p>\n        </div>\n      </div>\n\n      <div class=\"control-group\">\n        <!-- Button -->\n        <div class=\"controls\">\n          <button class=\"btn btn-success\" ng-disabled=\"loginForm.$invalid\"\n                  ng-click=\"auth.logged($event, loginForm)\">\n            Login\n          </button>\n        </div>\n      </div>\n    </fieldset>\n  </form>\n</div>"
 
 /***/ },
 /* 17 */
@@ -40845,6 +40896,14 @@ try {
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	/**
+	 * @type controller
+	 * @class authorization.Controller:AuthorizationController
+	 * @memberOf authorization
+	 * @description
+	 * Implement register and loin form, validation and broadcast data to factory
+	 */
+
 	var AuthorizationController = function () {
 	  function AuthorizationController(authFactory) {
 	    _classCallCheck(this, AuthorizationController);
@@ -40858,6 +40917,17 @@ try {
 	    this.passSimilar = false;
 	  }
 
+	  /**
+	   * @method
+	   * @name registered
+	   * @memberOf authorization.controller:AuthorizationController
+	   * @param {Object} ev - event form
+	   * @param {Object} form - form obj with data from input
+	   * @description
+	   * This method handle to the factory method and implement logout
+	   */
+
+
 	  _createClass(AuthorizationController, [{
 	    key: 'registered',
 	    value: function registered(ev, form) {
@@ -40870,6 +40940,17 @@ try {
 	      this.register = false;
 	      this.passSimilar = false;
 	    }
+
+	    /**
+	     * @method
+	     * @name logged
+	     * @memberOf authorization.controller:AuthorizationController
+	     * @param {Object} ev - event form
+	     * @param {Object} form - form obj with data from input
+	     * @description
+	     * This method handle to the factory method and implement logged
+	     */
+
 	  }, {
 	    key: 'logged',
 	    value: function logged(ev, form) {
@@ -40880,6 +40961,16 @@ try {
 	      });
 	      this.login = false;
 	    }
+
+	    /**
+	     * @method
+	     * @name changePass
+	     * @memberOf authorization.controller:AuthorizationController
+	     * @param {Object} form - obj with data from input
+	     * @description
+	     * compare password если они одинаковые return true
+	     */
+
 	  }, {
 	    key: 'changePass',
 	    value: function changePass(form) {
@@ -40903,10 +40994,20 @@ try {
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var emailValidation = function emailValidation() {
-	  //RegExp for email with two symbol after '.', but hard support and expand solution
-	  //const RegExp = /([a-zA-Z]{2,})+@[a-zA-Z]+?\.[a-zA-Z]{2,}/;
+	/**
+	 * @type directive
+	 * @class authorization.Directive:emailValid
+	 * @memberOf authorization
+	 * @description
+	 * This validation data in email form through regExp and js logic.(example aa@a.aa)
+	 * You can use another solution:
+	 * RegExp for email with two symbol after '.', but hard support and expand solution
+	 * const RegExp = /([a-zA-Z]{2,})+@[a-zA-Z]+?\.[a-zA-Z]{2,}/;
+	 * @example
+	 *  <input type="email" name="email" ng-model="register.mail" email-valid>
+	 */
 
+	var emailValidation = function emailValidation() {
 	  var EMAIL_REGEXP = /^[^@]+@[^@.]+\.[^@]+$/i;
 
 	  return {
@@ -40939,10 +41040,20 @@ try {
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var nameValidation = function nameValidation() {
-	  //RefExp for two words, but hard support and expand solution
-	  //const NAME_REGEXP = /^[\w]+(\s+[\w]+)$/;
+	/**
+	 * @type directive
+	 * @class authorization.Directive:nameValid
+	 * @memberOf authorization
+	 * @description
+	 * This validation data in full name form through regExp and js logic.(only two word without number and space in the middle of a word)
+	 * You can use another solution:
+	 * RefExp for two words, but hard support and expand solution
+	 * const NAME_REGEXP = /^[\w]+(\s+[\w]+)$/;
+	 * @example
+	 *  <input type="text" name="username" ng-model="register.username" name-valid required>
+	 */
 
+	var nameValidation = function nameValidation() {
 	  //only words
 	  var WORD = /^([a-z]+)$/i;
 	  return {
@@ -40984,6 +41095,14 @@ try {
 	var _home = __webpack_require__(21);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @module
+	 * @namespace home
+	 * @class app.components.home:Module home
+	 * @description
+	 * A module that can register your own state and html5mode turn on..
+	 */
 
 	var home = exports.home = _angular2.default.module('home', []).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	  $locationProvider.html5Mode({
@@ -41038,26 +41157,21 @@ try {
 	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var HomeController = function () {
-	  function HomeController() {
-	    _classCallCheck(this, HomeController);
+	/**
+	 * @type controller
+	 * @class home.Controller:HomeController
+	 * @memberOf home
+	 * @description
+	 * Nothing.
+	 */
 
-	    this.page = '';
-	  }
+	var HomeController = function HomeController() {
+	  _classCallCheck(this, HomeController);
 
-	  _createClass(HomeController, [{
-	    key: '$onInit',
-	    value: function $onInit() {
-	      this.page = 'Home page';
-	    }
-	  }]);
-
-	  return HomeController;
-	}();
+	  this.page = 'Home page';
+	};
 
 	exports.HomeController = HomeController;
 
@@ -41080,6 +41194,13 @@ try {
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/**
+	 * @module
+	 * @namespace contact
+	 * @class app.components.contact:Module contact
+	 * @description
+	 * A module that can register your own state.
+	 */
 	var contact = exports.contact = _angular2.default.module('contact', []).config(function ($stateProvider) {
 	  $stateProvider.state('contact', {
 	    url: '/contact',
@@ -41128,26 +41249,21 @@ try {
 	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var ContactController = function () {
-	  function ContactController() {
-	    _classCallCheck(this, ContactController);
+	/**
+	 * @type controller
+	 * @class contact.controller:ContactController
+	 * @memberOf contact
+	 * @description
+	 * Nothing.
+	 */
 
-	    this.page = '';
-	  }
+	var ContactController = function ContactController() {
+	  _classCallCheck(this, ContactController);
 
-	  _createClass(ContactController, [{
-	    key: '$onInit',
-	    value: function $onInit() {
-	      this.page = 'Contact';
-	    }
-	  }]);
-
-	  return ContactController;
-	}();
+	  this.page = 'Contact';
+	};
 
 	ContactController.$inject = [];
 
@@ -41172,6 +41288,13 @@ try {
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/**
+	 * @module
+	 * @namespace blog
+	 * @class app.components.blog:Module blog
+	 * @description
+	 * A module that can register your own state and html5mode turn on..
+	 */
 	var blog = exports.blog = _angular2.default.module('blog', []).config(function ($stateProvider) {
 	  $stateProvider.state('blog', {
 	    url: '/blog',
@@ -41225,30 +41348,25 @@ try {
 	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var BlogController = function () {
-	  function BlogController($scope, $state) {
-	    _classCallCheck(this, BlogController);
+	/**
+	 * @type controller
+	 * @class blog.controller:BlogController
+	 * @memberOf blog
+	 * @description
+	 * watch for event logout and  when it happen redirect to home page 
+	 */
 
-	    this.page = '';
-	    this.$scope = $scope;
-	    this.$scope.$on('logout', function () {
-	      $state.go('home');
-	    });
-	  }
+	var BlogController = function BlogController($scope, $state) {
+	  _classCallCheck(this, BlogController);
 
-	  _createClass(BlogController, [{
-	    key: '$onInit',
-	    value: function $onInit() {
-	      this.page = 'Blog Page';
-	    }
-	  }]);
-
-	  return BlogController;
-	}();
+	  this.page = 'Blog Page';
+	  this.$scope = $scope;
+	  this.$scope.$on('logout', function () {
+	    $state.go('home');
+	  });
+	};
 
 	BlogController.$inject = ['$scope', '$state'];
 
@@ -41273,6 +41391,13 @@ try {
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/**
+	 * @module
+	 * @namespace authFact
+	 * @class app.components.authFact:Module authFact
+	 * @description
+	 * A module that can register factory.
+	 */
 	var authFact = exports.authFact = _angular2.default.module('authFact', []).factory('authFactory', _auth.authorizationFactory);
 
 /***/ },
@@ -41284,7 +41409,23 @@ try {
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	/* @ngInject */
+	/**
+	 * @type factory
+	 * @class authFact.factory:authFactory
+	 * @memberOf authFact
+	 * @description
+	 * Provides processing of user data, registration and logged
+	 * @example
+	 *  class AuthorizationController {
+	 *    constructor(authFactory) {
+	 *      this.authFactory = authFactory;
+	 *    }
+	 *    registered(data) {
+	 *      this.authFactory.save(data);
+	 *    }
+	 *  }
+	 */
+
 	var authorizationFactory = function authorizationFactory($rootScope, $q) {
 	  var dataUser = {
 	    'aa@a.aa': {
@@ -41296,17 +41437,40 @@ try {
 
 	  var authUser = false;
 
+	  /**
+	   * @method
+	   * @name registered
+	   * @memberOf authFact.factory:authFactory
+	   * @param {Object} user - user obj
+	   * @description
+	   * Save data user
+	   */
 	  function save(user) {
 	    if (!dataUser[user.email]) {
 	      dataUser[user.email] = Object.assign({}, user);
 	    }
 	  }
 
+	  /**
+	   * @method
+	   * @name logout
+	   * @memberOf authFact.factory:authFactory
+	   * @description
+	   * logout and clear temporary user data
+	   */
 	  function logout() {
 	    authUser = false;
 	    $rootScope.$broadcast('logout', 'Log out');
 	  }
 
+	  /**
+	   * @method
+	   * @name logged
+	   * @memberOf authFact.factory:authFactory
+	   * @param {Object} user - user obj
+	   * @description
+	   * checks for a user and if there gives login
+	   */
 	  function logged(user) {
 	    if (dataUser[user.email]) {
 	      if (dataUser[user.email].password === user.password) {
@@ -41318,6 +41482,13 @@ try {
 	    }
 	  }
 
+	  /**
+	   * @method
+	   * @name auth
+	   * @memberOf authFact.factory:authFactory
+	   * @description
+	   * if the logged return resolve
+	   */
 	  function auth() {
 	    var prom = $q.defer();
 	    if (authUser) {

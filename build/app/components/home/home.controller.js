@@ -1,7 +1,7 @@
 /**
- * @ngdoc controller
- * @name home.controller:HomeController
- * @memberOf angular.home
+ * @type controller
+ * @class home.Controller:HomeController
+ * @memberOf home
  * @description
  * Nothing.
  */

@@ -1,9 +1,7 @@
 /**
- * @ngdoc directive
- * @name authorization.directive:nameValid
- * @restrict A
- * @scope
- * form ngModel
+ * @type directive
+ * @class authorization.Directive:nameValid
+ * @memberOf authorization
  * @description
  * This validation data in full name form through regExp and js logic.(only two word without number and space in the middle of a word)
  * You can use another solution:

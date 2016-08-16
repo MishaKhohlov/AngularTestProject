@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "gulp",
-    "doc": "jsdoc -d documentation/ ./build/app"
+    "doc": "jsdoc -d documentation/ ./build/app/ -r -c ./conf.json"
   },
   "author": "MishaKhohlov",
   "license": "ISC",

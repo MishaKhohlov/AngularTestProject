@@ -1,7 +1,7 @@
 /**
- * @ngdoc controller
- * @name navbar.controller:NavbarController
- * @memberOf angular.navbar
+ * @type controller
+ * @class navbar.Controller:NavbarController
+ * @memberOf navbar
  * @description
  * Open/hide autorization form, show data about user and implement logout.
  */
@@ -19,9 +19,9 @@ class NavbarController {
   }
 
   /**
-   * @ngdoc method
+   * @method
    * @name logout
-   * @methodOf navbar.controller:NavbarController
+   * @memberOf navbar.Controller:NavbarController
    * @description
    * This method handle to the factory method and implement logout
    */

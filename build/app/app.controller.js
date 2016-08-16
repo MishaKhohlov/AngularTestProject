@@ -1,7 +1,7 @@
 /**
- * @ngdoc controller
- * @name app.controller:AppController
- * @memberOf angular.app
+ * @type controller
+ * @class app.Controller:AppController
+ * @memberOf app
  * @description
  * Controller in which stored data about link and state.
  */

@@ -2,8 +2,9 @@ import angular from 'angular';
 import { contactComponent } from './contact.component';
 
 /**
- * @ngdoc module
- * @namespace app.components.contact
+ * @module
+ * @namespace contact
+ * @class app.components.contact:Module contact
  * @description
  * A module that can register your own state.
  */

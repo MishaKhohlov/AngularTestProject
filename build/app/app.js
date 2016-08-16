@@ -7,10 +7,9 @@ import ngAnimate from 'angular-animate';
 import {components} from './components/components';
 
 /**
- * @ngdoc module
- * @namespace angular
- * @memberOf angular
- * @class angular.app
+ * @module
+ * @namespace appModule
+ * @class app
  * @description
  * A module that can connect general dependencies and component module.
  */

@@ -7,7 +7,8 @@ import { authFact } from './auth.factory/auth';
 
 /**
  * @ngdoc module
- * @namespace app.components
+ * @namespace components
+ * @class app.components:Module components
  * @description
  * A module that can connect general dependent components.
  */

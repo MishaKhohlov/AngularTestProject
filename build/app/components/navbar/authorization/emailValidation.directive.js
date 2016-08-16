@@ -1,9 +1,7 @@
 /**
- * @ngdoc directive
- * @name authorization.directive:emailValid
- * @restrict A
- * @scope
- * form ngModel
+ * @type directive
+ * @class authorization.Directive:emailValid
+ * @memberOf authorization
  * @description
  * This validation data in email form through regExp and js logic.(example aa@a.aa)
  * You can use another solution:

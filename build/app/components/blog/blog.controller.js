@@ -1,7 +1,7 @@
 /**
- * @ngdoc controller
- * @name blog.controller:BlogController
- * @memberOf angular.blog
+ * @type controller
+ * @class blog.controller:BlogController
+ * @memberOf blog
  * @description
  * watch for event logout and  when it happen redirect to home page 
  */
