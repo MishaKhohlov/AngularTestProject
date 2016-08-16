@@ -1,5 +1,38 @@
-.active-page {
-  color: #f00;
+a.active-page {
+  background: #dc6226;
+}
+.nav-link {
+  list-style: none;
+  margin-bottom: -1px;
+}
+.nav-link__list-item {
+  padding: 0;
+}
+.nav-link__item {
+  padding: 41px 15px;
+  display: block;
+  text-align: center;
+  color: #fff;
+}
+.nav-link__item:hover {
+  color: inherit;
+}
+.nav-link__item:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.auth-block-btn,
+.btn-logout {
+  margin-top: 33px;
+}
+.user-name {
+  margin-top: 25px;
+}
+.form-conteiner-auth {
+  background: #fff;
+  padding: 0 10px 10px 10px;
+  margin-bottom: 10px;
+  color: #000;
 }
 .form-register input.ng-invalid,
 .form-login input.ng-invalid {
@@ -9,7 +42,21 @@
 .form-login input.ng-empty {
   border-color: #808080;
 }
+.link-close {
+  display: block;
+  color: #000;
+}
 input,
 textarea {
   outline: none;
+}
+html {
+  font: 700 14px/20px 'Lato', sans-serif;
+}
+header {
+  color: #fff;
+  background: #404b52;
+}
+.logo {
+  margin-top: 40px;
 }

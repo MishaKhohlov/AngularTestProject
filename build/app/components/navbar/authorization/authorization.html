@@ -1,5 +1,5 @@
-<div class="container" ng-if="auth.register">
-  <a href="" ng-click="auth.register = !auth.register">Close</a>
+<div class="form-conteiner-auth" ng-if="auth.register">
+  <a href="" ng-click="auth.register = !auth.register" class="link-close text-right">&times;</a>
   <form class="form-horizontal form-register" name="registerForm" action='' method="POST" novalidate>
     <fieldset>
       <div id="legend">
@@ -84,8 +84,8 @@
   </form>
 </div>
 
-<div class="container" ng-if="auth.login">
-  <a href="" ng-click="auth.login = !auth.login">Close</a>
+<div class="form-conteiner-auth" ng-if="auth.login">
+  <a href="" ng-click="auth.login = !auth.login" class="link-close text-right">&times;</a>
   <form class="form-horizontal form-login" name="loginForm" action='' method="POST" novalidate>
     <fieldset>
       <div>
