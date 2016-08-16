@@ -41145,7 +41145,7 @@ try {
 /* 22 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"home\">\n  <h1>{{home.page}}</h1>\n</section>\n"
+	module.exports = "<section class=\"container-fluid home\">\n  <div class=\"row\">\n    <div class=\"\">\n      <div class=\"slider animate-if\" ng-repeat=\"item in home.slider\" ng-if=\"item.show\">\n        <img ng-src=\"./assets/images/{{item.name}}\" class=\"img-responsive slider__img\" alt=\"{{item.name}}\">\n        <div class=\"slider__slogan\">\n          <div class=\"slider__text\">{{item.text}}</div>\n          <div class=\"slider__full-text\">{{item.fullText}}</div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1\">\n      <div class=\"row\">\n        <div class=\"slider col-lg-3 col-md-3\" ng-repeat=\"(key, item) in home.slider\">\n          <img ng-src=\"./assets/images/{{item.name}}\"  ng-click=\"home.selectPhoto(key)\" class=\"img-responsive\" alt=\"{{item.name}}\">\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
 
 /***/ },
 /* 23 */
@@ -41157,6 +41157,8 @@ try {
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	/**
@@ -41167,11 +41169,62 @@ try {
 	 * Nothing.
 	 */
 
-	var HomeController = function HomeController() {
-	  _classCallCheck(this, HomeController);
+	var HomeController = function () {
+	  function HomeController($timeout) {
+	    var _this = this;
 
-	  this.page = 'Home page';
-	};
+	    _classCallCheck(this, HomeController);
+
+	    this.$timeout = $timeout;
+	    this.slider = [{
+	      name: 'slide-1.jpg',
+	      text: 'Business works with technology',
+	      fullText: 'We added technology to strategy. You get the multiplier effect',
+	      show: true
+	    }, {
+	      name: 'slide-2.jpg',
+	      text: 'Professional Consulting Services',
+	      fullText: 'We are the trusted advisor to the world\'s leading businesses',
+	      show: false
+	    }, {
+	      name: 'slide-3.jpg',
+	      text: 'Broaden your market edge',
+	      fullText: 'We work with our clients as we do with our colleagues',
+	      show: false
+	    }, {
+	      name: 'slide-4.jpg',
+	      text: 'We are a network of leaders',
+	      fullText: 'We develop unparalleled management insights',
+	      show: false
+	    }];
+	    var count = 0;
+	    var len = this.slider.length - 1;
+	    this.sliderStart = function () {
+	      if (count < len) {
+	        _this.slider[count].show = false;
+	        ++count;
+	        _this.slider[count].show = true;
+	      } else {
+	        _this.slider[len].show = false;
+	        count = 0;
+	        _this.slider[count].show = true;
+	      }
+	      _this.$timeout(_this.sliderStart, 3000);
+	    };
+	    this.$timeout(this.sliderStart, 3000);
+	  }
+
+	  _createClass(HomeController, [{
+	    key: 'selectPhoto',
+	    value: function selectPhoto(key) {
+	      console.log(key);
+	    }
+	  }]);
+
+	  return HomeController;
+	}();
+
+	HomeController.$inject = ['$timeout'];
 
 	exports.HomeController = HomeController;
 

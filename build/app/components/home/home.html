@@ -1,3 +1,22 @@
-<section class="home">
-  <h1>{{home.page}}</h1>
+<section class="container-fluid home">
+  <div class="row">
+    <div class="">
+      <div class="slider animate-if" ng-repeat="item in home.slider" ng-if="item.show">
+        <img ng-src="./assets/images/{{item.name}}" class="img-responsive slider__img" alt="{{item.name}}">
+        <div class="slider__slogan">
+          <div class="slider__text">{{item.text}}</div>
+          <div class="slider__full-text">{{item.fullText}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
+      <div class="row">
+        <div class="slider col-lg-3 col-md-3" ng-repeat="(key, item) in home.slider">
+          <img ng-src="./assets/images/{{item.name}}"  ng-click="home.selectPhoto(key)" class="img-responsive" alt="{{item.name}}">
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
