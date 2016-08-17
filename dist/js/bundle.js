@@ -41166,7 +41166,7 @@ try {
 	 * @class home.Controller:HomeController
 	 * @memberOf home
 	 * @description
-	 * Nothing.
+	 * Slider control, storage of data slides.
 	 */
 
 	var HomeController = function () {
