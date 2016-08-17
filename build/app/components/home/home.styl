@@ -1,13 +1,22 @@
+.home
+  background app-background
+  padding-bottom 28px
+  &__slider-wrapper
+    overflow hidden
+
+
 .slider
   position relative
+  &__img
+    width 100%
   &__slogan
     position absolute
     top: 30%
     left: 10%
   &__text
-    font-size 20px
+    font-size 25px
     line-height 35px
-    padding 20px 15px 15px 15px
+    padding 20px 70px 15px 15px
     text-transform uppercase
     background app-orange
     color white
@@ -19,3 +28,24 @@
     background white
     margin-top 6px
 
+.gallery
+  padding-top 28px
+  &__item-img
+    padding-left 0
+  &__background-item
+    position relative
+    background black
+    overflow hidden
+    height 130px
+  &__img
+    position absolute
+    right 0
+    top 0
+    height 100%
+    min-width 100%
+    max-width none
+    cursor pointer
+    opacity 0.7
+    transition 0.5s linear all
+    &:hover
+      opacity 1

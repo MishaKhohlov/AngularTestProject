@@ -104,7 +104,7 @@ try {
 /* 2 */
 /***/ function(module, exports) {
 
-	module.exports = "<header class=\"container-fluid header\">\n  <div class=\"row\">\n    <div class=\"col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10\">\n      <div class=\"row\">\n        <div class=\"col-lg-3 col-md-3\">\n          <a href=\"#\" class=\"logo\">\n            <img src=\"./assets/images/logo.png\" class=\"img-responsive logo\" alt=\"logo\">\n          </a>\n        </div>\n        <div class=\"col-lg-offset-2 col-md-offset-1 col-lg-7 col-md-7\">\n          <navbar links=\"app.links\"></navbar>\n        </div>\n      </div>\n    </div>\n  </div>\n</header>\n\n<main ui-view></main>\n\n<footer>\n  Footer\n</footer>"
+	module.exports = "<header class=\"container-fluid header\">\n  <div class=\"row\">\n    <div class=\"col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 \">\n      <div class=\"row\">\n        <div class=\"col-lg-3 col-md-3\">\n          <a href=\"#\" class=\"logo\">\n            <img src=\"./assets/images/logo.png\" class=\"img-responsive logo\" alt=\"logo\">\n          </a>\n        </div>\n        <div class=\"col-lg-offset-2 col-md-offset-1 col-lg-7 col-md-7\">\n          <navbar links=\"app.links\"></navbar>\n        </div>\n      </div>\n    </div>\n  </div>\n</header>\n\n<main ui-view></main>\n\n<footer>\n  Footer\n</footer>"
 
 /***/ },
 /* 3 */
@@ -40751,7 +40751,7 @@ try {
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row\">\n  <div role=\"navigation\" class=\"col-md-12 col-lg-12\">\n    <div class=\"row\">\n      <nav>\n        <ul class=\"col-md-8 col-lg-8 nav-link\">\n          <li ng-repeat=\"link in nav.links\" class=\"col-lg-3 col-md-3 nav-link__list-item\">\n            <a href=\"\" ui-sref=\"{{link.component}}\" ui-sref-active=\"active-page\"\n               class=\"nav-link__item\">{{link.name}}</a>\n          </li>\n        </ul>\n      </nav>\n      <div ng-if=\"!nav.authUser\" class=\"col-md-4 col-lg-4 auth-block-btn\">\n        <div class=\"row\">\n          <button ng-click=\"nav.registerForm = !nav.registerForm; nav.loginForm = false\"\n                  class=\"col-md-5 col-lg-5 btn btn-warning\">Register\n          </button>\n          <button ng-click=\"nav.loginForm = !nav.loginForm; nav.registerForm = false\"\n                  class=\"col-md-offset-1 col-md-5 col-lg-offset-1 col-lg-5 btn btn-warning\">\n            Login\n          </button>\n        </div>\n      </div>\n      <div ng-if=\"nav.authUser\" class=\"col-md-4 col-lg-4\">\n        <div class=\"row\">\n          <div class=\"col-md-8 col-lg-8\">\n            <p class=\"user-name\">{{nav.authUser.name}}</p>\n            <p>{{nav.authUser.email}}</p>\n          </div>\n          <button class=\"col-md-4 col-lg-4 btn btn-danger btn-logout\" ng-click=\"nav.logout()\">Logout</button>\n        </div>\n      </div>\n    </div>\n  </div>\n  <authorization class=\"col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-10 authorization-conteiner\"\n                 register=\"nav.registerForm\" login=\"nav.loginForm\"></authorization>\n</div>"
+	module.exports = "<div class=\"row\">\n  <div role=\"navigation\" class=\"col-md-12 col-lg-12\">\n    <div class=\"row\">\n      <nav>\n        <ul class=\"col-sm-7 col-md-8 col-lg-8 nav-link\">\n          <li ng-repeat=\"link in nav.links\" class=\"col-sm-2 col-lg-3 col-md-3 nav-link__list-item\">\n            <a href=\"\" ui-sref=\"{{link.component}}\" ui-sref-active=\"active-page\"\n               class=\"nav-link__item\">{{link.name}}</a>\n          </li>\n        </ul>\n      </nav>\n      <div ng-if=\"!nav.authUser\" class=\"col-sm-4 col-md-4 col-lg-4 auth-block-btn\">\n        <div class=\"row\">\n          <button ng-click=\"nav.registerForm = !nav.registerForm; nav.loginForm = false\"\n                  class=\"col-md-5 col-lg-5 btn btn-warning\">Register\n          </button>\n          <button ng-click=\"nav.loginForm = !nav.loginForm; nav.registerForm = false\"\n                  class=\"col-md-offset-1 col-md-5 col-lg-offset-1 col-lg-5 btn btn-warning\">\n            Login\n          </button>\n        </div>\n      </div>\n      <div ng-if=\"nav.authUser\" class=\"col-sm-4 col-md-4 col-lg-4\">\n        <div class=\"row\">\n          <div class=\"col-sm-8 col-md-8 col-lg-8\">\n            <p class=\"user-name\">{{nav.authUser.name}}</p>\n            <p class=\"user-email\">{{nav.authUser.email}}</p>\n          </div>\n          <button class=\"col-sm-4 col-md-4 col-lg-4 btn btn-danger btn-logout\" ng-click=\"nav.logout()\">Logout</button>\n        </div>\n      </div>\n    </div>\n  </div>\n  <authorization class=\"col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-10 authorization-conteiner\"\n                 register=\"nav.registerForm\" login=\"nav.loginForm\"></authorization>\n</div>"
 
 /***/ },
 /* 13 */
@@ -41145,7 +41145,7 @@ try {
 /* 22 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"container-fluid home\">\n  <div class=\"row\">\n    <div class=\"\">\n      <div class=\"slider animate-if\" ng-repeat=\"item in home.slider\" ng-if=\"item.show\">\n        <img ng-src=\"./assets/images/{{item.name}}\" class=\"img-responsive slider__img\" alt=\"{{item.name}}\">\n        <div class=\"slider__slogan\">\n          <div class=\"slider__text\">{{item.text}}</div>\n          <div class=\"slider__full-text\">{{item.fullText}}</div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1\">\n      <div class=\"row\">\n        <div class=\"slider col-lg-3 col-md-3\" ng-repeat=\"(key, item) in home.slider\">\n          <img ng-src=\"./assets/images/{{item.name}}\"  ng-click=\"home.selectPhoto(key)\" class=\"img-responsive\" alt=\"{{item.name}}\">\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+	module.exports = "<section class=\"container-fluid home\">\n  <div class=\"row\">\n    <div class=\"home__slider-wrapper\">\n      <div class=\"slider animate-if\" ng-repeat=\"item in home.slider\" ng-if=\"item.show\">\n        <img ng-src=\"./assets/images/{{item.name}}\" class=\"img-responsive slider__img\" alt=\"{{item.name}}\">\n        <div class=\"slider__slogan\">\n          <div class=\"slider__text\">{{item.text}}</div>\n          <div class=\"slider__full-text\">{{item.fullText}}</div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row home__gallery-wrapper\">\n    <div class=\"col-sm-10 col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1\">\n      <div class=\"row gallery\">\n        <div class=\"col-sm-3 col-lg-3 col-md-3 gallery__item-img\" ng-repeat=\"(key, item) in home.slider\">\n          <div class=\"gallery__background-item\">\n            <img ng-src=\"./assets/images/{{item.name}}\" ng-click=\"home.selectPhoto(key)\"\n                 class=\"img-responsive gallery__img\" alt=\"{{item.name}}\">\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
 
 /***/ },
 /* 23 */
@@ -41197,27 +41197,54 @@ try {
 	      fullText: 'We develop unparalleled management insights',
 	      show: false
 	    }];
-	    var count = 0;
+
+	    this.count = 0;
+	    this.disabledSlider = false;
 	    var len = this.slider.length - 1;
+
+	    /**
+	     * @function
+	     * @name sliderStart
+	     * @memberOf home.Controller:HomeController
+	     * @description
+	     * Start slider with interval 3000ms.
+	     * Every 3000ms hide before photo and show next
+	     */
 	    this.sliderStart = function () {
-	      if (count < len) {
-	        _this.slider[count].show = false;
-	        ++count;
-	        _this.slider[count].show = true;
-	      } else {
-	        _this.slider[len].show = false;
-	        count = 0;
-	        _this.slider[count].show = true;
+	      if (!_this.disabledSlider) {
+	        if (_this.count < len) {
+	          _this.slider[_this.count].show = false;
+	          ++_this.count;
+	          _this.slider[_this.count].show = true;
+	        } else {
+	          _this.slider[len].show = false;
+	          _this.count = 0;
+	          _this.slider[_this.count].show = true;
+	        }
+	        _this.$timeout(_this.sliderStart, 3000);
 	      }
-	      _this.$timeout(_this.sliderStart, 3000);
 	    };
 	    this.$timeout(this.sliderStart, 3000);
 	  }
 
+	  /**
+	   * @method
+	   * @name selectPhoto
+	   * @memberOf home.Controller:HomeController
+	   * @description
+	   * This method stop slider and show selected photo
+	   */
+
+
 	  _createClass(HomeController, [{
 	    key: 'selectPhoto',
 	    value: function selectPhoto(key) {
-	      console.log(key);
+	      if (!this.disabledSlider) {
+	        this.disabledSlider = true;
+	      }
+	      this.slider[this.count].show = false;
+	      this.slider[key].show = true;
+	      this.count = key;
 	    }
 	  }]);
 

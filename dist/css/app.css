@@ -28,6 +28,22 @@ a.active-page {
 .user-name {
   margin-top: 25px;
 }
+@media (max-width: 991px) {
+  .nav-link__item {
+    padding: 10px 15px;
+  }
+  .authorization-conteiner {
+    padding: 0;
+  }
+  .auth-block-btn,
+  .btn-logout {
+    margin-top: 0;
+  }
+  .user-name,
+  .user-email {
+    margin: 0;
+  }
+}
 .form-conteiner-auth {
   background: #fff;
   padding: 0 10px 10px 10px;
@@ -46,8 +62,18 @@ a.active-page {
   display: block;
   color: #000;
 }
+.home {
+  background: #e8eef2;
+  padding-bottom: 28px;
+}
+.home__slider-wrapper {
+  overflow: hidden;
+}
 .slider {
   position: relative;
+}
+.slider__img {
+  width: 100%;
 }
 .slider__slogan {
   position: absolute;
@@ -55,9 +81,9 @@ a.active-page {
   left: 10%;
 }
 .slider__text {
-  font-size: 20px;
+  font-size: 25px;
   line-height: 35px;
-  padding: 20px 15px 15px 15px;
+  padding: 20px 70px 15px 15px;
   text-transform: uppercase;
   background: #dc6226;
   color: #fff;
@@ -72,6 +98,32 @@ a.active-page {
   padding: 10px 15px;
   background: #fff;
   margin-top: 6px;
+}
+.gallery {
+  padding-top: 28px;
+}
+.gallery__item-img {
+  padding-left: 0;
+}
+.gallery__background-item {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  height: 130px;
+}
+.gallery__img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  min-width: 100%;
+  max-width: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.5s linear all;
+}
+.gallery__img:hover {
+  opacity: 1;
 }
 .animate-if.ng-enter,
 .animate-if.ng-leave.ng-leave-active {
@@ -94,5 +146,5 @@ header {
   background: #404b52;
 }
 .logo {
-  margin-top: 40px;
+  padding: 40px 0 30px;
 }

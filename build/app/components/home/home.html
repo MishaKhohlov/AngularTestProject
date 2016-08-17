@@ -1,6 +1,6 @@
 <section class="container-fluid home">
   <div class="row">
-    <div class="">
+    <div class="home__slider-wrapper">
       <div class="slider animate-if" ng-repeat="item in home.slider" ng-if="item.show">
         <img ng-src="./assets/images/{{item.name}}" class="img-responsive slider__img" alt="{{item.name}}">
         <div class="slider__slogan">
@@ -10,11 +10,14 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
-      <div class="row">
-        <div class="slider col-lg-3 col-md-3" ng-repeat="(key, item) in home.slider">
-          <img ng-src="./assets/images/{{item.name}}"  ng-click="home.selectPhoto(key)" class="img-responsive" alt="{{item.name}}">
+  <div class="row home__gallery-wrapper">
+    <div class="col-sm-10 col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+      <div class="row gallery">
+        <div class="col-sm-3 col-lg-3 col-md-3 gallery__item-img" ng-repeat="(key, item) in home.slider">
+          <div class="gallery__background-item">
+            <img ng-src="./assets/images/{{item.name}}" ng-click="home.selectPhoto(key)"
+                 class="img-responsive gallery__img" alt="{{item.name}}">
+          </div>
         </div>
       </div>
     </div>
