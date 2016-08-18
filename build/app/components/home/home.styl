@@ -71,22 +71,36 @@
   center-tx()
   &__background
     background url('../assets/images/bg-1.png') center top no-repeat
-    padding 100px 0 70px
+    padding 100px 0 90px
+  &__title-content
+    margin-bottom 80px
   &__title
     letter-spacing -1px
     word-spacing -2px
     text-transform uppercase
     font 400 40px/40px 'Fjalla One', sans-serif
     color app-text-black
+  &__sub-title
+    font: 900 18px/22px 'Lato', sans-serif;
   &__description
     center-tx()
     font-size 22px
     line-height 32px
     margin-bottom 20px
-  &__link
+  &__sub-description
+    font-size 18px
+    line-height 27px
+    font-weight 300
+    margin-bottom 20px
+  &__link-more, &__link-portfolio
     padding 9px 25px 9px
     letter-spacing 1px
     text-transform uppercase
 
-    width 110px
-    box-sizing content-box
+.comment
+  &__background
+    background url('../assets/images/parallax-1.jpg') center top no-repeat
+  &__description
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px 90px 25px 45px;
