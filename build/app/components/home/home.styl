@@ -7,22 +7,28 @@
 
 .slider
   position relative
+  &__link
+    padding 20px 70px 15px 15px
+    color white
+    &:hover
+      color: white
+      text-decoration none
+      cursor pointer
   &__img
     width 100%
   &__slogan
     position absolute
     top: 30%
-    left: 10%
+    left: 5%
   &__text
-    font-size 25px
-    line-height 35px
-    padding 20px 70px 15px 15px
+    font 400 30px/40px 'Fjalla One', sans-serif
     text-transform uppercase
-    background app-orange
     color white
-    letter-spacing -1px
+    word-spacing -2px
+    letter-spacing -1.5px
     text-align left
   &__full-text
+    display block
     font-mx(16px, 500, 30px, app-text)
     padding 10px 15px
     background white
@@ -49,3 +55,24 @@
     transition 0.5s linear all
     &:hover
       opacity 1
+
+@media (max-width: media-xs)
+  .gallery
+    &__item-img
+      padding-left 15px
+
+.welc-comp
+  center-tx()
+  &__background
+    background url('../assets/images/bg-1.png') center top no-repeat
+    padding 100px 0 70px
+  &__title
+    letter-spacing -1px
+    word-spacing -2px
+    text-transform uppercase
+    font 400 40px/40px 'Fjalla One', sans-serif
+  &__description
+    center-tx()
+    font-size 22px
+    line-height 32px
+    margin-bottom 20px

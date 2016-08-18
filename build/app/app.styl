@@ -1,5 +1,6 @@
 @require './style/variables'
 @require './style/mixins'
+@require './style/link-animation'
 @require './components/navbar/navbar'
 @require './components/navbar/authorization/authorization'
 @require './components/home/home'
@@ -16,8 +17,12 @@
 input, textarea
   outline none
 
-html
-  font: 700 14px/20px 'Lato', sans-serif
+body
+  font-family: "PT Sans",sans-serif
+  font-size 13px
+  min-width 320px
+  margin 0
+  color body-color
 
 header
   color: white
@@ -25,3 +30,4 @@ header
 
 .logo
   padding 40px 0 30px;
+

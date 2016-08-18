@@ -1,3 +1,39 @@
+.link-animation {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+.link-animation:before,
+.link-animation:after {
+  pointer-events: none;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #dc6226;
+  border: none;
+  content: '';
+  transform: translateY(0px) translateX(0px);
+  transition: transform 0.5s, opacity 0.5s;
+}
+.link-animation:after {
+  background: #404b52;
+  opacity: 0;
+  transform: translateY(-15px) translateX(12px);
+}
+.link-animation:hover:before,
+.link-animation:focus:before {
+  opacity: 0;
+  transform: translateY(15px) translateX(-12px);
+}
+.link-animation:hover:after,
+.link-animation:focus:after {
+  opacity: 1;
+  transform: translateY(0px) translateX(0px);
+}
 a.active-page {
   background: #dc6226;
 }
@@ -35,7 +71,9 @@ a.active-page {
   .authorization-conteiner {
     padding: 0;
   }
-  .auth-block-btn,
+  .auth-block-btn {
+    margin-top: 3px;
+  }
   .btn-logout {
     margin-top: 0;
   }
@@ -72,25 +110,33 @@ a.active-page {
 .slider {
   position: relative;
 }
+.slider__link {
+  padding: 20px 70px 15px 15px;
+  color: #fff;
+}
+.slider__link:hover {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
 .slider__img {
   width: 100%;
 }
 .slider__slogan {
   position: absolute;
   top: 30%;
-  left: 10%;
+  left: 5%;
 }
 .slider__text {
-  font-size: 25px;
-  line-height: 35px;
-  padding: 20px 70px 15px 15px;
+  font: 400 30px/40px 'Fjalla One', sans-serif;
   text-transform: uppercase;
-  background: #dc6226;
   color: #fff;
-  letter-spacing: -1px;
+  word-spacing: -2px;
+  letter-spacing: -1.5px;
   text-align: left;
 }
 .slider__full-text {
+  display: block;
   font-size: 16px;
   font-weight: 500;
   line-height: 30px;
@@ -125,6 +171,30 @@ a.active-page {
 .gallery__img:hover {
   opacity: 1;
 }
+@media (max-width: 767px) {
+  .gallery__item-img {
+    padding-left: 15px;
+  }
+}
+.welc-comp {
+  text-align: center;
+}
+.welc-comp__background {
+  background: url("../assets/images/bg-1.png") center top no-repeat;
+  padding: 100px 0 70px;
+}
+.welc-comp__title {
+  letter-spacing: -1px;
+  word-spacing: -2px;
+  text-transform: uppercase;
+  font: 400 40px/40px 'Fjalla One', sans-serif;
+}
+.welc-comp__description {
+  text-align: center;
+  font-size: 22px;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
 .animate-if.ng-enter,
 .animate-if.ng-leave.ng-leave-active {
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
@@ -138,8 +208,12 @@ input,
 textarea {
   outline: none;
 }
-html {
-  font: 700 14px/20px 'Lato', sans-serif;
+body {
+  font-family: "PT Sans", sans-serif;
+  font-size: 13px;
+  min-width: 320px;
+  margin: 0;
+  color: #363636;
 }
 header {
   color: #fff;
