@@ -4,16 +4,10 @@
   &__slider-wrapper
     overflow hidden
 
-
 .slider
   position relative
   &__link
     padding 20px 70px 15px 15px
-    color white
-    &:hover
-      color: white
-      text-decoration none
-      cursor pointer
   &__img
     width 100%
   &__slogan
@@ -33,6 +27,18 @@
     padding 10px 15px
     background white
     margin-top 6px
+
+@media (max-width: media-xs)
+  &__link
+    padding 10px 50px 5px 5px
+  .slider
+    &__text
+      font-size 20px
+      line-height 20px
+      letter-spacing -0.5px
+    &__full-text
+      font-size 12px
+
 
 .gallery
   padding-top 28px
@@ -71,8 +77,16 @@
     word-spacing -2px
     text-transform uppercase
     font 400 40px/40px 'Fjalla One', sans-serif
+    color app-text-black
   &__description
     center-tx()
     font-size 22px
     line-height 32px
     margin-bottom 20px
+  &__link
+    padding 9px 25px 9px
+    letter-spacing 1px
+    text-transform uppercase
+
+    width 110px
+    box-sizing content-box
