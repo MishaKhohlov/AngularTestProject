@@ -163,9 +163,6 @@ a.active-page {
   margin-top: 6px;
 }
 @media (max-width: 767px) {
-  __link {
-    padding: 10px 50px 5px 5px;
-  }
   .slider__text {
     font-size: 20px;
     line-height: 20px;
@@ -173,6 +170,9 @@ a.active-page {
   }
   .slider__full-text {
     font-size: 12px;
+  }
+  .slider__link {
+    padding: 10px 50px 5px 5px;
   }
 }
 .gallery {
@@ -247,14 +247,76 @@ a.active-page {
 .comment__background {
   background: url("../assets/images/parallax-1.jpg") center top no-repeat;
 }
+.comment__img-wrapper {
+  float: left;
+  margin-right: 30px;
+  width: 99px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.comment__img {
+  width: 100%;
+}
 .comment__description {
+  padding: 65px 0 50px;
+}
+.comment__view {
   background: #fff;
   border-radius: 10px;
   padding: 30px 90px 25px 45px;
+  margin: 60px 0;
+  position: relative;
 }
-input,
-textarea {
-  outline: none;
+.comment__view:after,
+.comment__view:before {
+  width: 51px;
+  height: 43px;
+  position: absolute;
+  content: '';
+  background-image: url("../assets/images/spritesheet.png");
+}
+.comment__view:before {
+  top: -60px;
+  left: 5px;
+  width: 51px;
+  height: 43px;
+  background-position: -10px -42px;
+}
+.comment__view:after {
+  bottom: -60px;
+  right: 5px;
+  width: 51px;
+  height: 43px;
+  background-position: -10px -105px;
+}
+.comment__text-wrap {
+  overflow: hidden;
+}
+.comment__full-text {
+  padding-bottom: 17px;
+}
+.comment__full-text-link {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #363636;
+  transition: 0.2s linear all;
+}
+.comment__full-text-link:hover {
+  text-decoration: none;
+  color: #dc6226;
+}
+.comment__author {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  color: #dc6226;
+}
+blockquote {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  border-left: none;
 }
 body {
   font-family: 'Lato', sans-serif;
@@ -281,4 +343,14 @@ header {
 }
 .center-block {
   float: none;
+}
+.sprite {
+  background-image: url("../assets/images/spritesheet.png");
+  background-repeat: no-repeat;
+  display: block;
+}
+.sprite-list-marker {
+  width: 16px;
+  height: 12px;
+  background-position: -10px -10px;
 }

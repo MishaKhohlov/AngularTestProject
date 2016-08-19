@@ -29,8 +29,6 @@
     margin-top 6px
 
 @media (max-width: media-xs)
-  &__link
-    padding 10px 50px 5px 5px
   .slider
     &__text
       font-size 20px
@@ -38,7 +36,8 @@
       letter-spacing -0.5px
     &__full-text
       font-size 12px
-
+    &__link
+      padding 10px 50px 5px 5px
 
 .gallery
   padding-top 28px
@@ -100,7 +99,49 @@
 .comment
   &__background
     background url('../assets/images/parallax-1.jpg') center top no-repeat
+  &__img-wrapper
+    float: left;
+    margin-right 30px
+    width 99px
+    border-radius 50%
+    overflow hidden
+  &__img
+    width 100%
   &__description
-    background: #fff;
-    border-radius: 10px;
-    padding: 30px 90px 25px 45px;
+    padding 65px 0 50px
+  &__view
+    background white
+    border-radius 10px
+    padding: 30px 90px 25px 45px
+    margin 60px 0
+    position relative
+    &:after, &:before
+      width 51px
+      height 43px
+      position absolute
+      content ''
+      background-image url('../assets/images/spritesheet.png')
+    &:before
+      top -60px
+      left 5px
+      width 51px
+      height 43px
+      background-position -10px -42px
+    &:after
+      bottom -60px
+      right 5px
+      width 51px
+      height 43px
+      background-position -10px -105px
+  &__text-wrap
+    overflow hidden
+  &__full-text
+    padding-bottom 17px
+    &-link
+      font-mx(14px, 500, 21px, app-text-black)
+      transition 0.2s linear all
+      &:hover
+        text-decoration none
+        color app-orange
+  &__author
+    font-mx(16px, 600, 1, app-orange)
