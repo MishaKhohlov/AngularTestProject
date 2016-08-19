@@ -346,9 +346,20 @@ a.active-page {
   text-transform: uppercase;
 }
 @media (max-width: 1199px) {
+  .information {
+    padding: 70px 0 0;
+  }
   .information__item {
     height: 404px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 767px) {
+  .information {
+    padding: 50px 0 0;
+  }
+  .information__item {
+    margin-bottom: 30px;
   }
 }
 @media (max-width: 767px) {
@@ -374,6 +385,12 @@ a.active-page {
   font-size: 22px;
   line-height: 32px;
   margin-bottom: 20px;
+}
+.our-value__title {
+  margin-bottom: 30px;
+}
+.our-value__description {
+  margin-bottom: 90px;
 }
 .our-value__item-img {
   width: 100%;
@@ -410,6 +427,27 @@ a.active-page {
   background: url("../assets/images/spritesheet.png") -10px -10px no-repeat;
   width: 16px;
   height: 12px;
+}
+@media (max-width: 767px) {
+  .our-value__item {
+    margin-bottom: 40px;
+  }
+}
+.company {
+  padding: 30px 0;
+}
+.company__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.company__item-img {
+  margin: 0 auto;
+  display: block;
+}
+@media (max-width: 767px) {
+  .company__wrapper {
+    display: block;
+  }
 }
 blockquote {
   margin: 0;

@@ -20,7 +20,7 @@ class AuthorizationController {
   /**
    * @method
    * @name registered
-   * @memberOf authorization.controller:AuthorizationController
+   * @memberOf authorization.Controller:AuthorizationController
    * @param {Object} ev - event form
    * @param {Object} form - form obj with data from input
    * @description
@@ -40,7 +40,7 @@ class AuthorizationController {
   /**
    * @method
    * @name logged
-   * @memberOf authorization.controller:AuthorizationController
+   * @memberOf authorization.Controller:AuthorizationController
    * @param {Object} ev - event form
    * @param {Object} form - form obj with data from input
    * @description
@@ -58,7 +58,7 @@ class AuthorizationController {
   /**
    * @method
    * @name changePass
-   * @memberOf authorization.controller:AuthorizationController
+   * @memberOf authorization.Controller:AuthorizationController
    * @param {Object} form - obj with data from input
    * @description
    * compare password если они одинаковые return true

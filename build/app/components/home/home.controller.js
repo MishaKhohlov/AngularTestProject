@@ -61,7 +61,7 @@ class HomeController {
       },
       {
         name: 'icon-service-4.png',
-        title: 'New Strategy',
+        title: 'It management',
         fullText: temporaryText,
         link: temporaryLink
       },
