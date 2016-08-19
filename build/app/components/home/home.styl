@@ -1,4 +1,4 @@
-.home
+.benefits
   background app-background
   padding-bottom 28px
   &__slider-wrapper
@@ -39,6 +39,7 @@
     &__link
       padding 10px 50px 5px 5px
 
+
 .gallery
   padding-top 28px
   &__item-img
@@ -66,25 +67,19 @@
     &__item-img
       padding-left 15px
 
+
 .welc-comp
   center-tx()
+  title()
+  title-description()
   &__background
     background url('../assets/images/bg-1.png') center top no-repeat
     padding 100px 0 90px
   &__title-content
     margin-bottom 80px
-  &__title
-    letter-spacing -1px
-    word-spacing -2px
-    text-transform uppercase
-    font 400 40px/40px 'Fjalla One', sans-serif
-    color app-text-black
   &__sub-title
     font: 900 18px/22px 'Lato', sans-serif;
   &__description
-    center-tx()
-    font-size 22px
-    line-height 32px
     margin-bottom 20px
   &__sub-description
     font-size 18px
@@ -96,6 +91,7 @@
     letter-spacing 1px
     text-transform uppercase
 
+
 .comment
   &__background
     background url('../assets/images/parallax-1.jpg') center top no-repeat
@@ -103,8 +99,7 @@
     float: left;
     margin-right 30px
     width 99px
-    border-radius 50%
-    overflow hidden
+    bord-rad()
   &__img
     width 100%
   &__description
@@ -145,3 +140,71 @@
         color app-orange
   &__author
     font-mx(16px, 600, 1, app-orange)
+
+
+.information
+  padding 95px 0 60px
+  &__item
+    margin-bottom 90px
+  &__img-wrapper
+    bord-rad()
+  &__title
+    text-transform uppercase
+    font 400 30px/30px 'Fjalla One', sans-serif
+    margin-bottom 18px
+    center-tx()
+  &__description
+    margin-bottom 20px
+    center-tx()
+  &__link-portfolio
+    font 400 16px/22px 'Lato', sans-serif
+    letter-spacing 1px
+    padding 9px 25px 9px
+    text-transform uppercase
+
+@media(max-width: media-lg)
+  .information
+    &__item
+      height 404px
+      margin-bottom 70px
+
+@media(max-width: media-xs)
+  .information
+    &__item
+      height initial
+      margin-bottom 50px
+
+.our-value
+  background #e8eef2
+  padding 100px 0 30px
+  title()
+  title-description()
+  &__item-img
+    width 100%
+  &__img-wrapper
+    width 100%
+    padding 6px
+    background white
+    box-shadow 0 4px 4px rgba(0,0,0,0.15)
+    margin-bottom 40px
+  &__title-list
+    color: app-text-black
+    text-transform: uppercase
+    font 900 20px/24px 'Lato', sans-serif
+    margin-bottom 10px
+  &__list li
+    margin 0
+    padding 0 0 0 26px
+    font-mx(18px, 300, 30px, app-text-black)
+    font-style italic
+    position relative
+    &:before
+      content ''
+      position absolute
+      left 0
+      top 9px
+      display block
+      background: url('../assets/images/spritesheet.png') -10px -10px no-repeat;
+      width: 16px
+      height: 12px
+

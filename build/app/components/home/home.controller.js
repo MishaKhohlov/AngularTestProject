@@ -36,6 +36,49 @@ class HomeController {
       }
     ];
 
+    const temporaryText = 'Vestibulum quis felis ut enim aliquam iaculis. ' +
+      'Nullam pharetra tortor at quam viverra volutpat. Phasellus vel faucibus dolor. Curabitur';
+    const temporaryLink = './#/';
+
+    this.inform = [
+      {
+        name: 'icon-service-1.png',
+        title: 'Business Consulting',
+        fullText: temporaryText,
+        link: temporaryLink
+      },
+      {
+        name: 'icon-service-2.png',
+        title: 'Enterprise Application',
+        fullText: temporaryText,
+        link: temporaryLink
+      },
+      {
+        name: 'icon-service-3.png',
+        title: 'New Strategy',
+        fullText: temporaryText,
+        link: temporaryLink
+      },
+      {
+        name: 'icon-service-4.png',
+        title: 'New Strategy',
+        fullText: temporaryText,
+        link: temporaryLink
+      },
+      {
+        name: 'icon-service-5.png',
+        title: 'Outsourcing',
+        fullText: temporaryText,
+        link: temporaryLink
+      },
+      {
+        name: 'icon-service-6.png',
+        title: 'Sales & Marketing',
+        fullText: temporaryText,
+        link: temporaryLink
+      }
+    ];
+
     this.count = 0;
     this.disabledSlider = false;
     let len = this.slider.length - 1;

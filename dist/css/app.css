@@ -44,6 +44,9 @@
   position: relative;
   display: inline-block;
 }
+.link-center {
+  text-align: center;
+}
 a.active-page {
   background: #dc6226;
 }
@@ -123,11 +126,11 @@ a.active-page {
     margin: 10px;
   }
 }
-.home {
+.benefits {
   background: #e8eef2;
   padding-bottom: 28px;
 }
-.home__slider-wrapper {
+.benefits__slider-wrapper {
   overflow: hidden;
 }
 .slider {
@@ -209,6 +212,20 @@ a.active-page {
 .welc-comp {
   text-align: center;
 }
+.welc-comp__title {
+  text-align: center;
+  letter-spacing: -1px;
+  word-spacing: -2px;
+  text-transform: uppercase;
+  font: 400 40px/40px 'Fjalla One', sans-serif;
+  color: #363636;
+}
+.welc-comp__description {
+  text-align: center;
+  font-size: 22px;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
 .welc-comp__background {
   background: url("../assets/images/bg-1.png") center top no-repeat;
   padding: 100px 0 90px;
@@ -216,20 +233,10 @@ a.active-page {
 .welc-comp__title-content {
   margin-bottom: 80px;
 }
-.welc-comp__title {
-  letter-spacing: -1px;
-  word-spacing: -2px;
-  text-transform: uppercase;
-  font: 400 40px/40px 'Fjalla One', sans-serif;
-  color: #363636;
-}
 .welc-comp__sub-title {
   font: 900 18px/22px 'Lato', sans-serif;
 }
 .welc-comp__description {
-  text-align: center;
-  font-size: 22px;
-  line-height: 32px;
   margin-bottom: 20px;
 }
 .welc-comp__sub-description {
@@ -312,15 +319,112 @@ a.active-page {
   line-height: 1;
   color: #dc6226;
 }
+.information {
+  padding: 95px 0 60px;
+}
+.information__item {
+  margin-bottom: 90px;
+}
+.information__img-wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.information__title {
+  text-transform: uppercase;
+  font: 400 30px/30px 'Fjalla One', sans-serif;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.information__description {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.information__link-portfolio {
+  font: 400 16px/22px 'Lato', sans-serif;
+  letter-spacing: 1px;
+  padding: 9px 25px 9px;
+  text-transform: uppercase;
+}
+@media (max-width: 1199px) {
+  .information__item {
+    height: 404px;
+    margin-bottom: 70px;
+  }
+}
+@media (max-width: 767px) {
+  .information__item {
+    height: initial;
+    margin-bottom: 50px;
+  }
+}
+.our-value {
+  background: #e8eef2;
+  padding: 100px 0 30px;
+}
+.our-value__title {
+  text-align: center;
+  letter-spacing: -1px;
+  word-spacing: -2px;
+  text-transform: uppercase;
+  font: 400 40px/40px 'Fjalla One', sans-serif;
+  color: #363636;
+}
+.our-value__description {
+  text-align: center;
+  font-size: 22px;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
+.our-value__item-img {
+  width: 100%;
+}
+.our-value__img-wrapper {
+  width: 100%;
+  padding: 6px;
+  background: #fff;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.15);
+  margin-bottom: 40px;
+}
+.our-value__title-list {
+  color: #363636;
+  text-transform: uppercase;
+  font: 900 20px/24px 'Lato', sans-serif;
+  margin-bottom: 10px;
+}
+.our-value__list li {
+  margin: 0;
+  padding: 0 0 0 26px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 30px;
+  color: #363636;
+  font-style: italic;
+  position: relative;
+}
+.our-value__list li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  display: block;
+  background: url("../assets/images/spritesheet.png") -10px -10px no-repeat;
+  width: 16px;
+  height: 12px;
+}
 blockquote {
   margin: 0;
   padding: 0;
   font-size: 100%;
   border-left: none;
 }
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 body {
   font-family: 'Lato', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   min-width: 320px;
   margin: 0;
   color: #363636;
@@ -343,14 +447,4 @@ header {
 }
 .center-block {
   float: none;
-}
-.sprite {
-  background-image: url("../assets/images/spritesheet.png");
-  background-repeat: no-repeat;
-  display: block;
-}
-.sprite-list-marker {
-  width: 16px;
-  height: 12px;
-  background-position: -10px -10px;
 }

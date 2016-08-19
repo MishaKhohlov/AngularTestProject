@@ -12,8 +12,25 @@ cont-mx(d = flex, jc = space-between, w = 100%)
 anim-mx(t = .2s)
   transition t linear all
 
-bord-rad(b = 7px)
+bord-rad(b = 50%)
   border-radius b
+  overflow hidden
 
 center-tx()
   text-align center
+
+title()
+  &__title
+    text-align center
+    letter-spacing -1px
+    word-spacing -2px
+    text-transform uppercase
+    font 400 40px/40px 'Fjalla One', sans-serif
+    color app-text-black
+
+title-description()
+  &__description
+    text-align: center
+    font-size: 22px
+    line-height: 32px
+    margin-bottom: 20px
