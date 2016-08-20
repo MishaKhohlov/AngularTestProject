@@ -78,6 +78,7 @@ class HomeController {
         link: temporaryLink
       }
     ];
+    this.company = ['url1', 'url2', 'url3', 'url4', 'url5', 'url6', 'url7', 'url8', 'url9'];
 
     this.count = 0;
     this.disabledSlider = false;
