@@ -1,4 +1,5 @@
 import angular from 'angular';
+import {scrollEvent} from './scroll.directive';
 import {homeComponent} from './home.component';
 
 /**
@@ -6,7 +7,7 @@ import {homeComponent} from './home.component';
  * @namespace home
  * @class app.components.home:Module home
  * @description
- * A module that can register your own state and html5mode turn on..
+ * A module that can register your own state and html5mode turn on.. and connect directive scrollEvent
  */
 
 export const home = angular.module('home', [])
@@ -21,4 +22,5 @@ export const home = angular.module('home', [])
       template: '<home></home>'
     });
   })
+  .directive('scrollEvent', scrollEvent)
   .component('home', homeComponent);

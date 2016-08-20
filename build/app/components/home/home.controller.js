@@ -109,7 +109,7 @@ class HomeController {
     this.$timeout(this.sliderStart, 3000);
   }
 
-  /**
+   /**
    * @method
    * @name selectPhoto
    * @memberOf home.Controller:HomeController

@@ -103,10 +103,15 @@ a.active-page {
     margin: 0;
   }
 }
+@media (max-width: 767px) {
+  .nav-menu {
+    margin-bottom: 15px;
+  }
+}
 .form-conteiner-auth {
   background: #fff;
   padding: 0 10px 10px 10px;
-  margin-bottom: 10px;
+  margin: 10px;
   color: #000;
 }
 .form-register input.ng-invalid,
@@ -121,17 +126,23 @@ a.active-page {
   display: block;
   color: #000;
 }
-@media (max-width: 767px) {
-  .form-conteiner-auth {
-    margin: 10px;
-  }
-}
 .benefits {
   background: #e8eef2;
   padding-bottom: 28px;
 }
 .benefits__slider-wrapper {
   overflow: hidden;
+}
+@media (max-width: 767px) {
+  .benefits {
+    padding-bottom: 0;
+  }
+  .benefits__slider-wrapper {
+    padding-bottom: 155px;
+  }
+  .benefits__gallery-wrapper {
+    display: none;
+  }
 }
 .slider {
   position: relative;
@@ -166,21 +177,38 @@ a.active-page {
   margin-top: 6px;
 }
 @media (max-width: 767px) {
-  .slider__slogan {
-    top: 15%;
-    left: 0;
+  .slider {
+    height: 230px;
+  }
+  .slider__img {
+    width: initial;
+    max-width: initial;
+    min-width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
   }
   .slider__text {
-    font-size: 17px;
-    line-height: 17px;
-    letter-spacing: -0.5px;
+    font-size: 25px;
   }
   .slider__full-text {
-    font-size: 10px;
-    padding: 10px 5px;
+    line-height: 16px;
   }
-  .slider__link {
-    padding: 10px 50px 5px 5px;
+  .slider__slogan {
+    top: 245px;
+    left: 0;
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+@media (max-width: 500px) {
+  .slider__text {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .slider__full-text {
+    line-height: 20px;
+    padding: 10px 5px;
   }
 }
 .gallery {
@@ -258,7 +286,7 @@ a.active-page {
   text-transform: uppercase;
 }
 .comment__background {
-  background: url("../assets/images/parallax-1.jpg") center top no-repeat;
+  background: url("../assets/images/parallax-1.jpg") no-repeat;
 }
 .comment__img-wrapper {
   float: left;
@@ -271,7 +299,7 @@ a.active-page {
   width: 100%;
 }
 .comment__description {
-  padding-top: 65px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 .comment__view {
@@ -346,9 +374,6 @@ a.active-page {
   border-radius: 50%;
   overflow: hidden;
 }
-.information__img {
-  width: 100%;
-}
 .information__title {
   text-transform: uppercase;
   font: 400 30px/30px 'Fjalla One', sans-serif;
@@ -381,12 +406,10 @@ a.active-page {
   }
   .information__item {
     margin-bottom: 30px;
-  }
-}
-@media (max-width: 767px) {
-  .information__item {
     height: initial;
-    margin-bottom: 50px;
+  }
+  .information__img {
+    width: 70%;
   }
   .information__link-portfolio {
     padding: 5px 10px;
