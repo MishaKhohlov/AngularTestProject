@@ -1,4 +1,4 @@
-// var webpack = require('webpack');
+var webpack = require('webpack');
 // var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -21,6 +21,6 @@ module.exports = {
   },
   plugins: [
     //new ExtractTextPlugin('bundel.css')
-    //new webpack.optimize.UglifyJsPlugin({minimize: true})
+    // new webpack.optimize.UglifyJsPlugin({minimize: true})
   ]
 }

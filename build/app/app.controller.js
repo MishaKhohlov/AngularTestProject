@@ -9,6 +9,7 @@
 class AppController {
   constructor($timeout) {
     this.$timeout = $timeout;
+    this.maps = false;
     this.links = [
       {name: 'Home', component: 'home'},
       {name: 'Contact', component: 'contact'},
@@ -47,7 +48,10 @@ class AppController {
       });
     }
 
-    this.$timeout(mapsInit, 2000);
+    this.$timeout(()=> {
+      mapsInit();
+      this.maps = true;
+    }, 2000);
   }
 }
 

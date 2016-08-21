@@ -16,12 +16,11 @@ function config($stateProvider) {
   $stateProvider.state('blog', {
     url: '/blog',
     template: '<blog></blog>',
-    resolve: {/* @ngInject */
-      promiseObj: (authFactory) => {
+    resolve: {
+      promiseObj: ['authFactory', (authFactory) => {
         return authFactory.auth();
-      }
+      }]
     }
   });
 }
-
 config.$inject = ['$stateProvider'];

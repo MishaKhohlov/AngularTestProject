@@ -16,10 +16,10 @@ export const home = angular.module('home', [])
   .component('home', homeComponent);
 
 function config($stateProvider, $urlRouterProvider, $locationProvider) {
-  $locationProvider.html5Mode({
+  /*$locationProvider.html5Mode({
     enabled: true,
     requireBase: false
-  });
+  });*/
   $urlRouterProvider.otherwise('/');
   $stateProvider.state('home', {
     url: '/',

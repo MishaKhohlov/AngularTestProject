@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app" ng-strict-di>
 <head>
+  <base href="">
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="en">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -15,17 +16,18 @@
   <link rel="stylesheet" href="css/fontello.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/app.css">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8ZmAKtDOSXkgTRseMw-YRo0KEeUkXuIo&callback=initMap"
-          async defer></script>
+
   <title>AppliKey</title>
 </head>
-<body>
+  <body>
 
-<app>
-  Loading...
-</app>
+  <app>
+    Loading...
+  </app>
 
-<script>function initMap() {}</script>
-<script src="./js/bundle.js"></script>
-</body>
+  <script>function initMap() {}</script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8ZmAKtDOSXkgTRseMw-YRo0KEeUkXuIo&callback=initMap"
+          async defer></script>
+  <script src="./js/bundle.js"></script>
+  </body>
 </html>

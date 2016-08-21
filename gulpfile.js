@@ -1,6 +1,8 @@
 const gulp = require('gulp'),
   browserSync = require('browser-sync').create(),
   stylus = require('gulp-stylus'),
+  gcmq = require('gulp-group-css-media-queries'),
+  autoprefixer = require('gulp-autoprefixer'),
   named = require('vinyl-named'),
   ignoreErrors = require('gulp-ignore-errors'),
   concat = require('gulp-concat'),
@@ -26,8 +28,11 @@ gulp.task('html', function () {
 gulp.task('styl', function () {
   gulp.src('build/app/app.styl')
     .pipe(sourcemaps.init())
-    .pipe(stylus({
-      // compress: true
+    .pipe(stylus())
+    .pipe(gcmq())
+    .pipe(autoprefixer({
+      browsers: ['last 4 versions'],
+      cascade: false
     }))
     .pipe(gulp.dest('dist/css'))
     .pipe(ignoreErrors())
