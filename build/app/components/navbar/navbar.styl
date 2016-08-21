@@ -1,12 +1,34 @@
-a.active-page
-  background app-orange
+// block menu
+
+.menu
+  &__auth-block-btn, &__btn-logout
+    margin-top 33px
+  &__user-name
+    margin-top 25px
+  &__user-email
+    margin-bottom 0
+
+@media (max-width: media-md)
+  .menu
+    &__auth-block-btn, &__btn-logout
+      margin-top 6px
+    &__user-name
+      margin 0
+    &__auth-wrapper
+      padding 0
+
+@media (max-width: media-xs)
+  .menu
+    margin-bottom 15px
+
+// block nav-link
 
 .nav-link
   list-style none
   margin-bottom -1px
-  &__list-item
-    padding 0
   &__item
+    padding 0
+  &__item-link
     padding 41px 15px
     display block
     text-align center
@@ -21,31 +43,11 @@ a.active-page
     &:focus
       text-decoration none
       color inherit
-
-.auth-block-btn, .btn-logout
-  margin-top 33px;
-
-.user-name
-  margin-top 25px
+    &--back-active
+      background app-orange
 
 @media (max-width: media-md)
   .nav-link
     margin-bottom 0
-    &__item
+    &__item-link
       padding 10px 15px
-
-  .authorization-conteiner
-    padding 0
-
-  .auth-block-btn
-    margin-top 6px
-
-  .btn-logout
-    margin-top 0
-
-  .user-name, .user-email
-    margin 0
-
-@media (max-width: media-xs)
-  .nav-menu
-    margin-bottom 15px

@@ -91,7 +91,7 @@
     cursor pointer
     opacity 0.7
     transition 0.5s linear all
-    &--background-light:hover
+    &:hover
       opacity 1
 
 @media (max-width: media-xs)
@@ -152,8 +152,7 @@
         height 43px
         position absolute
         content ''
-        background-image url('../assets/images/spritesheet.png')
-        background-repeat no-repeat
+        background url('../assets/images/spritesheet.png') no-repeat
       &:before
         top -60px
         left 5px
@@ -257,7 +256,7 @@
   &__item
     width 11.333333%
     &--animation-pop
-      &:hover img
+      &:hover .company__item-img
         animation-name:pop;
         animation-duration:0.3s;
         animation-timing-function:linear;

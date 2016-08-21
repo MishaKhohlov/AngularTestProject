@@ -1,5 +1,6 @@
 import angular from 'angular';
 import { blogComponent } from './blog.component';
+
 /**
  * @module
  * @namespace blog
@@ -8,7 +9,10 @@ import { blogComponent } from './blog.component';
  * A module that can register your own state and html5mode turn on..
  */
 export const blog = angular.module('blog', [])
-.config(($stateProvider) => {
+.config(config)
+.component('blog', blogComponent);
+
+function config($stateProvider) {
   $stateProvider.state('blog', {
     url: '/blog',
     template: '<blog></blog>',
@@ -18,5 +22,6 @@ export const blog = angular.module('blog', [])
       }
     }
   });
-})
-.component('blog', blogComponent);
+}
+
+config.$inject = ['$stateProvider'];

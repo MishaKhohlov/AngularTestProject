@@ -1,15 +1,15 @@
 <div class="row">
-  <div role="navigation" class="col-md-12 nav-menu">
+  <div role="navigation" class="col-md-12 menu">
     <div class="row">
-      <nav>
-        <ul class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-7 col-md-8 nav-link">
-          <li ng-repeat="link in nav.links" class="col-sm-3 col-lg-3 col-md-3 nav-link__list-item">
-            <a href="" ui-sref="{{link.component}}" ui-sref-active="active-page"
-               class="nav-link__item">{{link.name}}</a>
+      <nav class="menu__nav-page-wrappper">
+        <ul class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-7 col-md-8 menu__nav-page-list nav-link">
+          <li ng-repeat="link in nav.links" class="col-sm-3 col-md-4 col-lg-3 nav-link__item">
+            <a href="" ui-sref="{{link.component}}" ui-sref-active="nav-link__item-link--back-active"
+               class="nav-link__item-link">{{link.name}}</a>
           </li>
         </ul>
       </nav>
-      <div ng-if="!nav.authUser" class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 auth-block-btn">
+      <div ng-if="!nav.authUser" class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 menu__auth-block-btn">
         <div class="row">
           <button ng-click="nav.registerForm = !nav.registerForm; nav.loginForm = false"
                   class="col-xs-4 col-xs-offset-1 col-md-5 btn btn-warning">Register
@@ -20,18 +20,18 @@
           </button>
         </div>
       </div>
-      <div ng-if="nav.authUser" class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+      <div ng-if="nav.authUser" class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 menu__logout-block-btn">
         <div class="row">
           <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <p class="user-name">{{nav.authUser.name}}</p>
-            <p class="user-email">{{nav.authUser.email}}</p>
+            <p class="menu__user-name">{{nav.authUser.name}}</p>
+            <p class="menu__user-email">{{nav.authUser.email}}</p>
           </div>
-          <button class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn btn-danger btn-logout" ng-click="nav.logout()">Logout
+          <button class="col-xs-4 btn btn-danger menu__btn-logout" ng-click="nav.logout()">Logout
           </button>
         </div>
       </div>
     </div>
   </div>
-  <authorization class="col-md-offset-2 col-md-10 authorization-conteiner"
+  <authorization class="col-md-offset-2 col-md-10 menu__auth-wrapper"
                  register="nav.registerForm" login="nav.loginForm"></authorization>
 </div>

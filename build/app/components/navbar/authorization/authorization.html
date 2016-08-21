@@ -1,4 +1,4 @@
-<div class="form-conteiner-auth" ng-if="auth.register">
+<div class="form-auth" ng-if="auth.register">
   <a href="" ng-click="auth.register = !auth.register" class="link-close text-right">&times;</a>
   <form class="form-horizontal form-register" name="registerForm" action='' method="POST" novalidate>
     <fieldset>
@@ -9,7 +9,7 @@
         <!-- Full name -->
         <label class="control-label" for="username">Full name</label>
         <div class="controls">
-          <input type="text" name="username" id="username" placeholder="" class="input-xlarge"
+          <input type="text" name="username" id="username" placeholder="" class="input-xlarge input-valid"
                  ng-minlength="2" ng-maxlength="25" ng-model="register.username" name-valid required>
           <p class="help-block">Username can contain any letters or numbers, without spaces</p>
           <p ng-show="registerForm.username.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
@@ -23,7 +23,7 @@
         <!-- E-mail -->
         <label class="control-label" for="email">E-mail</label>
         <div class="controls">
-          <input type="email" name="email" id="email" placeholder="" class="input-xlarge" ng-minlength="3"
+          <input type="email" name="email" id="email" placeholder="" class="input-xlarge input-valid" ng-minlength="3"
                  ng-maxlength="25" ng-model="register.mail" email-valid required>
           <p class="help-block">Please provide your E-mail</p>
           <p ng-show="registerForm.email.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
@@ -37,7 +37,7 @@
         <!-- Password-->
         <label class="control-label" for="password">Password</label>
         <div class="controls">
-          <input type="password" name="password" id="password" placeholder="" class="input-xlarge"
+          <input type="password" name="password" id="password" placeholder="" class="input-xlarge input-valid"
                  ng-minlength="6" ng-model="register.password" ng-pattern="auth.regExpPass"
                  ng-change="auth.changePass(registerForm)" required>
           <p class="help-block">Password should be at least 6 characters</p>
@@ -55,7 +55,7 @@
         <!-- Password -->
         <label class="control-label" for="password_confirm">Password (Confirm)</label>
         <div class="controls">
-          <input type="password" id="password_confirm" class="input-xlarge" name="password_confirm"
+          <input type="password" id="password_confirm" class="input-xlarge input-valid" name="password_confirm"
                  placeholder="" ng-minlength="6" ng-maxlength="30" ng-model="register.passwordConfirm"
                  ng-pattern="auth.regExpPass"
                  ng-change="auth.changePass(registerForm)" required>
@@ -84,7 +84,7 @@
   </form>
 </div>
 
-<div class="form-conteiner-auth" ng-if="auth.login">
+<div class="form-auth" ng-if="auth.login">
   <a href="" ng-click="auth.login = !auth.login" class="link-close text-right">&times;</a>
   <form class="form-horizontal form-login" name="loginForm" action='' method="POST" novalidate>
     <fieldset>
@@ -95,7 +95,7 @@
         <!-- E-mail -->
         <label class="control-label" for="email_login">E-mail</label>
         <div class="controls">
-          <input type="email" id="email_login" name="email" placeholder="" class="input-xlarge" ng-minlength="3"
+          <input type="email" id="email_login" name="email" placeholder="" class="input-xlarge input-valid" ng-minlength="3"
                  ng-maxlength="25" ng-model="login.mail" email-valid required>
           <p class="help-block">Please provide your E-mail</p>
           <p ng-show="registerForm.email.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>
@@ -109,7 +109,7 @@
         <!-- Password-->
         <label class="control-label" for="password_login">Password</label>
         <div class="controls">
-          <input type="password" name="password" id="password_login" placeholder="" class="input-xlarge"
+          <input type="password" name="password" id="password_login" placeholder="" class="input-xlarge input-valid"
                  ng-minlength="6" ng-maxlength="30" ng-model="login.password" ng-pattern="auth.regExpPass" required>
           <p class="help-block">Password should be at least 6 characters</p>
           <p ng-show="loginForm.password.$error.minlength" class="help-block bg-danger">{{auth.errorShort}}</p>

@@ -1,3 +1,7 @@
+input,
+textarea {
+  outline: none;
+}
 blockquote {
   margin: 0;
   padding: 0;
@@ -106,17 +110,41 @@ ul {
   width: 16px;
   height: 12px;
 }
-a.active-page {
-  background: #dc6226;
+.menu__auth-block-btn,
+.menu__btn-logout {
+  margin-top: 33px;
+}
+.menu__user-name {
+  margin-top: 25px;
+}
+.menu__user-email {
+  margin-bottom: 0;
+}
+@media (max-width: 991px) {
+  .menu__auth-block-btn,
+  .menu__btn-logout {
+    margin-top: 6px;
+  }
+  .menu__user-name {
+    margin: 0;
+  }
+  .menu__auth-wrapper {
+    padding: 0;
+  }
+}
+@media (max-width: 767px) {
+  .menu {
+    margin-bottom: 15px;
+  }
 }
 .nav-link {
   list-style: none;
   margin-bottom: -1px;
 }
-.nav-link__list-item {
+.nav-link__item {
   padding: 0;
 }
-.nav-link__item {
+.nav-link__item-link {
   padding: 41px 15px;
   display: block;
   text-align: center;
@@ -125,60 +153,36 @@ a.active-page {
   text-transform: uppercase;
   transition: 0.2s linear all;
 }
-.nav-link__item:hover {
+.nav-link__item-link:hover {
   color: inherit;
   text-decoration: none;
   background: #dc6226;
 }
-.nav-link__item:focus {
+.nav-link__item-link:focus {
   text-decoration: none;
   color: inherit;
 }
-.auth-block-btn,
-.btn-logout {
-  margin-top: 33px;
-}
-.user-name {
-  margin-top: 25px;
+.nav-link__item-link--back-active {
+  background: #dc6226;
 }
 @media (max-width: 991px) {
   .nav-link {
     margin-bottom: 0;
   }
-  .nav-link__item {
+  .nav-link__item-link {
     padding: 10px 15px;
   }
-  .authorization-conteiner {
-    padding: 0;
-  }
-  .auth-block-btn {
-    margin-top: 6px;
-  }
-  .btn-logout {
-    margin-top: 0;
-  }
-  .user-name,
-  .user-email {
-    margin: 0;
-  }
 }
-@media (max-width: 767px) {
-  .nav-menu {
-    margin-bottom: 15px;
-  }
-}
-.form-conteiner-auth {
+.form-auth {
   background: #fff;
   padding: 0 10px 10px 10px;
   margin: 10px;
   color: #000;
 }
-.form-register input.ng-invalid,
-.form-login input.ng-invalid {
+.input-valid.ng-invalid {
   border: 1px solid #f00;
 }
-.form-register input.ng-empty,
-.form-login input.ng-empty {
+.input-valid.ng-empty {
   border-color: #808080;
 }
 .link-close {
@@ -294,7 +298,7 @@ a.active-page {
   opacity: 0.7;
   transition: 0.5s linear all;
 }
-.gallery__img--background-light:hover {
+.gallery__img:hover {
   opacity: 1;
 }
 @media (max-width: 767px) {
@@ -375,8 +379,7 @@ a.active-page {
   height: 43px;
   position: absolute;
   content: '';
-  background-image: url("../assets/images/spritesheet.png");
-  background-repeat: no-repeat;
+  background: url("../assets/images/spritesheet.png") no-repeat;
 }
 .comment__view--background-quotes:before {
   top: -60px;
@@ -517,7 +520,7 @@ a.active-page {
 .company__item {
   width: 11.333333%;
 }
-.company__item--animation-pop:hover img {
+.company__item--animation-pop:hover .company__item-img {
   animation-name: pop;
   animation-duration: 0.3s;
   animation-timing-function: linear;
@@ -590,10 +593,10 @@ body {
   margin: 0;
   color: #363636;
 }
-header {
+.header {
   color: #fff;
   background: #404b52;
 }
-.logo {
-  padding: 40px 0 30px;
+.header__logo {
+  padding: 42px 0 30px;
 }

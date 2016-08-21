@@ -1,5 +1,5 @@
 import angular from 'angular';
-import { contactComponent } from './contact.component';
+import {contactComponent} from './contact.component';
 
 /**
  * @module
@@ -8,11 +8,16 @@ import { contactComponent } from './contact.component';
  * @description
  * A module that can register your own state.
  */
+
 export const contact = angular.module('contact', [])
-.config(($stateProvider) => {
+  .config(config)
+  .component('contact', contactComponent);
+
+function config($stateProvider) {
   $stateProvider.state('contact', {
     url: '/contact',
     template: '<contact></contact>'
   });
-})
-.component('contact', contactComponent);
+}
+
+config.$inject = ['$stateProvider'];
