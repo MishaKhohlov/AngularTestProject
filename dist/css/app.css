@@ -606,6 +606,10 @@ body {
   color: #e8eef2;
   font-family: 'Lato', sans-serif;
 }
+.footer__wrap-information {
+  border-bottom: 3px solid #5b5b5b;
+  padding-bottom: 60px;
+}
 .footer__title {
   letter-spacing: 0;
   word-spacing: 0;
@@ -640,6 +644,10 @@ body {
   color: #dc6226;
   text-decoration: none;
 }
+.footer__connect {
+  display: block;
+  overflow: hidden;
+}
 .footer__connect:before {
   content: '';
   display: inline-block;
@@ -657,6 +665,12 @@ body {
   margin-bottom: 20px;
 }
 @media (max-width: 767px) {
+  .footer__title {
+    margin-bottom: 15px;
+  }
+  .footer__column {
+    margin-bottom: 28px;
+  }
   .footer__connect:before {
     display: none;
   }
@@ -669,6 +683,10 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #fff;
+}
+.form-email__input:focus {
+  border-color: #dc6226;
+  box-shadow: none;
 }
 .form-email__input,
 .form-email__btn {
@@ -690,6 +708,7 @@ body {
 .form-email__btn:hover {
   background: #363636;
   color: #e8eef2;
+  border-color: #363636;
 }
 .list-social {
   margin-left: -10px;
@@ -710,5 +729,42 @@ body {
   .list-social__link {
     font-size: 25px;
     line-height: 25px;
+  }
+}
+.coopyright {
+  padding-top: 45px;
+  padding-bottom: 45px;
+  text-align: center;
+}
+.coopyright__title {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.coopyright__years {
+  font-weight: 400;
+}
+.coopyright__link {
+  color: inherit;
+  text-transform: none;
+  font-weight: 400;
+}
+.coopyright__link:hover,
+.coopyright__link:focus {
+  color: #dc6226;
+  text-decoration: none;
+}
+.coopyright__sub-title {
+  display: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 11px;
+  transition: 0.2s linear all;
+}
+.coopyright__sub-title:hover {
+  text-decoration: underline;
+}
+@media (max-width: 1199px) {
+  .coopyright__sub-title {
+    display: block;
   }
 }

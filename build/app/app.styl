@@ -32,6 +32,9 @@ body
   background app-black
   color app-text-white
   font-family 'Lato', sans-serif
+  &__wrap-information
+    border-bottom 3px solid app-border
+    padding-bottom 60px
   &__title
     letter-spacing 0
     word-spacing 0
@@ -57,6 +60,8 @@ body
       color app-orange
       text-decoration none
   &__connect
+    display block
+    overflow hidden
     &:before
       content: ''
       display inline-block
@@ -65,7 +70,7 @@ body
       left 0
       top: 10px
       bottom 0
-      background: #5b5b5b
+      background: app-border
   &__list-social
     margin-bottom 95px
   &__email-block
@@ -73,6 +78,10 @@ body
 
 @media(max-width: media-xs)
   .footer
+    &__title
+      margin-bottom 15px
+    &__column
+      margin-bottom 28px
     &__connect
       &:before
         display none
@@ -88,13 +97,16 @@ body
     font-size 14px
     line-height 20px
     color white
+    &:focus
+      border-color app-orange
+      box-shadow none
   &__input, &__btn
     bord-rad(0)
     border-color app-orange
   &__btn
     anim-mx(0.3s)
     font-weight 700
-    box-sizing: border-box;
+    box-sizing border-box
     width 97px
     height 41px
     text-align center
@@ -104,6 +116,7 @@ body
     &:hover
       background app-text-black
       color app-text-white
+      border-color app-text-black
 
 
 
@@ -124,6 +137,38 @@ body
     &__link
       font-size 25px
       line-height 25px
+
+
+
+.coopyright
+  padding-top 45px
+  padding-bottom 45px
+  text-align center
+  &__title
+    text-transform uppercase
+    font-weight 900
+  &__years
+    font-weight 400
+  &__link
+    color inherit
+    text-transform none
+    font-weight 400
+    &:hover, &:focus
+      color app-orange
+      text-decoration none
+  &__sub-title
+    display none
+    cursor pointer
+    margin-top 10px
+    font-size 11px
+    anim-mx()
+    &:hover
+      text-decoration underline
+
+@media(max-width: media-lg)
+  .coopyright
+    &__sub-title
+      display block
 
 
 
