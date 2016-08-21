@@ -600,3 +600,6 @@ body {
 .header__logo {
   padding: 42px 0 30px;
 }
+.footer {
+  background: #404b52;
+}

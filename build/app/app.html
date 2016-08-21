@@ -1,10 +1,10 @@
 <header class="container-fluid header">
   <div class="row">
-    <div class="col-lg-offset-1 col-lg-10 col-md-12 ">
+    <div class="col-lg-offset-1 col-md-12 col-lg-10 ">
       <div class="row">
         <div class="col-lg-3 col-md-3">
           <a href="#" class="header__logo">
-            <img src="./assets/images/logo.png" class="img-responsive logo" alt="logo">
+            <img src="./assets/images/logo.png" class="img-responsive header__logo" alt="logo">
           </a>
         </div>
         <div class="col-lg-offset-2 col-md-offset-1 col-lg-7 col-md-7">
@@ -17,6 +17,48 @@
 
 <main ui-view></main>
 
-<footer class="footer">
-  Footer
+<footer class="container-fluid footer">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <div class="row">
+        <div class="col-md-8 footer__nav">
+          <div class="row">
+            <div class="col-md-3 footer__column">
+              <nav>
+                <h4 class="footer__title">Navigation</h4>
+                <ul class="footer__list">
+                  <li ng-repeat="link in app.links" class="footer__item">
+                    <a href="" ui-sref="{{link.component}}" ui-sref-active=""
+                       class="footer__item-link">{{link.name}}</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="col-md-3">
+              <h4 class="footer__title">News</h4>
+              <ul class="footer__list">
+                <li class="footer__item"></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h4 class="footer__title">Get in touch</h4>
+              <ul class="footer__list">
+                <li class="footer__item footer__item--weight-bold"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <asside class="col-md-4 footer__connect">
+          <h4 class="footer__title">Connect Online</h4>
+          <ul>
+            <li></li>
+          </ul>
+          <div>
+            <h4 class="footer__title">Stay informed</h4>
+            <input type="email">
+          </div>
+        </asside>
+      </div>
+    </div>
+  </div>
 </footer>
