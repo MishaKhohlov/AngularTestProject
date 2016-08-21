@@ -1,8 +1,11 @@
+// block benefits
+
 .benefits
   background app-background
   padding-bottom 28px
   &__slider-wrapper
     overflow hidden
+    background: url('../assets/images/slide-1.jpg') no-repeat;
 
 @media (max-width: media-xs)
   .benefits
@@ -12,6 +15,7 @@
     &__gallery-wrapper
       display none
 
+// block slider
 
 .slider
   position relative
@@ -66,7 +70,7 @@
       line-height 20px
       padding 10px 5px
 
-
+// block gallery
 
 .gallery
   padding-top 28px
@@ -82,12 +86,12 @@
     right 0
     top 0
     height 100%
-    min-width 100%
+    min-width 101%
     max-width none
     cursor pointer
     opacity 0.7
     transition 0.5s linear all
-    &:hover
+    &--background-light:hover
       opacity 1
 
 @media (max-width: media-xs)
@@ -95,7 +99,7 @@
     &__item-img
       padding-left 15px
 
-
+// block welc-comp
 
 .welc-comp
   center-tx()
@@ -121,7 +125,7 @@
     letter-spacing 1px
     text-transform uppercase
 
-
+// block comment
 
 .comment
   &__background
@@ -142,25 +146,26 @@
     padding: 30px 90px 25px 45px
     margin 60px 0
     position relative
-    &:after, &:before
-      width 51px
-      height 43px
-      position absolute
-      content ''
-      background-image url('../assets/images/spritesheet.png')
-      background-repeat no-repeat
-    &:before
-      top -60px
-      left 5px
-      width 51px
-      height 43px
-      background-position -10px -42px
-    &:after
-      bottom -60px
-      right 5px
-      width 51px
-      height 43px
-      background-position -10px -105px
+    &--background-quotes
+      &:after, &:before
+        width 51px
+        height 43px
+        position absolute
+        content ''
+        background-image url('../assets/images/spritesheet.png')
+        background-repeat no-repeat
+      &:before
+        top -60px
+        left 5px
+        width 51px
+        height 43px
+        background-position -10px -42px
+      &:after
+        bottom -60px
+        right 5px
+        width 51px
+        height 43px
+        background-position -10px -105px
   &__text-wrap
     overflow hidden
   &__full-text
@@ -181,7 +186,7 @@
     &__view
       padding: 30px
 
-
+// block information
 
 .information
   padding-top 95px
@@ -224,7 +229,7 @@
       padding 5px 10px
       font-size 12px
 
-
+// block our-value
 
 .our-value
   background #e8eef2
@@ -244,18 +249,19 @@
     &__item
       margin-bottom 40px
 
-  
+// block company
 
 .company
   padding-top 30px
   padding-bottom 30px
   &__item
     width 11.333333%
-    &:hover img
-      animation-name:pop;
-      animation-duration:0.3s;
-      animation-timing-function:linear;
-      animation-iteration-count:1;
+    &--animation-pop
+      &:hover img
+        animation-name:pop;
+        animation-duration:0.3s;
+        animation-timing-function:linear;
+        animation-iteration-count:1;
   &__item-img
     width 100%
     center-blck()

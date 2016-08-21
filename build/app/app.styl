@@ -1,26 +1,14 @@
 @require './style/variables'
 @require './style/mixins'
 
+@require './style/my-reset'
+@require './style/ng-if-animation'
 @require './style/link-animation'
 @require './style/list-value'
 
 @require './components/navbar/navbar'
 @require './components/navbar/authorization/authorization'
 @require './components/home/home'
-
-input, textarea
-  outline
-
-blockquote
-  margin 0
-  padding 0
-  font-size 100%
-  border-left none
-
-ul
-  list-style none
-  margin 0
-  padding 0
 
 body
   font-family 'Lato', sans-serif
@@ -36,17 +24,6 @@ header
 .logo
   padding 40px 0 30px;
 
-.animate-if.ng-enter,
-.animate-if.ng-leave.ng-leave-active
-  transition all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s
-  opacity 0
-
-.animate-if.ng-leave,
-.animate-if.ng-enter.ng-enter-active
-  opacity 1
-
-.center-block
-  float none
 
 
 
