@@ -28,8 +28,102 @@ body
 // block footer
 
 .footer
-   background app-text
+  padding-top 75px
+  background app-black
+  color app-text-white
+  font-family 'Lato', sans-serif
+  &__title
+    letter-spacing 0
+    word-spacing 0
+    font-mx(16px, 900, 20px)
+    text-align left
+    margin-bottom 30px
+    text-transform uppercase
+    &--magrin-min
+      margin-bottom 10px
+  &__item
+    font-weight 400
+    line-height 23px
+  &__item-link
+    color app-text-white
+    font-size 14px
+    line-height 23px
+    font-weight 300
+    anim-mx()
+    &:hover, &:focus
+      color app-orange
+      text-decoration none
+    &--color-active
+      color app-orange
+      text-decoration none
+  &__connect
+    &:before
+      content: ''
+      display inline-block
+      width 1px
+      position: absolute
+      left 0
+      top: 10px
+      bottom 0
+      background: #5b5b5b
+  &__list-social
+    margin-bottom 95px
+  &__email-block
+    margin-bottom 20px
 
+@media(max-width: media-xs)
+  .footer
+    &__connect
+      &:before
+        display none
+
+
+
+.form-email
+  &__input
+    background app-black
+    height 41px
+    font-style normal
+    padding 10px 60px 11px 13px
+    font-size 14px
+    line-height 20px
+    color white
+  &__input, &__btn
+    bord-rad(0)
+    border-color app-orange
+  &__btn
+    anim-mx(0.3s)
+    font-weight 700
+    box-sizing: border-box;
+    width 97px
+    height 41px
+    text-align center
+    padding 0
+    color app-text-white
+    background app-orange
+    &:hover
+      background app-text-black
+      color app-text-white
+
+
+
+.list-social
+  margin-left -10px
+  &__item
+    display inline-block
+  &__link
+    color app-text-white
+    font-size 31px
+    line-height 31px
+    anim-mx()
+    &:hover
+      color app-orange
+
+@media(max-width: media-lg)
+  .list-social
+    &__link
+      font-size 25px
+      line-height 25px
 
 
 

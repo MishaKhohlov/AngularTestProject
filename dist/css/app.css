@@ -190,7 +190,7 @@ ul {
   color: #000;
 }
 .benefits {
-  background: #e8eef2;
+  background: app-background;
   padding-bottom: 28px;
 }
 .benefits__slider-wrapper {
@@ -601,5 +601,114 @@ body {
   padding: 42px 0 30px;
 }
 .footer {
-  background: #404b52;
+  padding-top: 75px;
+  background: #3d3d3d;
+  color: #e8eef2;
+  font-family: 'Lato', sans-serif;
+}
+.footer__title {
+  letter-spacing: 0;
+  word-spacing: 0;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 20px;
+  color: inherit;
+  text-align: left;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+.footer__title--magrin-min {
+  margin-bottom: 10px;
+}
+.footer__item {
+  font-weight: 400;
+  line-height: 23px;
+}
+.footer__item-link {
+  color: #e8eef2;
+  font-size: 14px;
+  line-height: 23px;
+  font-weight: 300;
+  transition: 0.2s linear all;
+}
+.footer__item-link:hover,
+.footer__item-link:focus {
+  color: #dc6226;
+  text-decoration: none;
+}
+.footer__item-link--color-active {
+  color: #dc6226;
+  text-decoration: none;
+}
+.footer__connect:before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 0;
+  background: #5b5b5b;
+}
+.footer__list-social {
+  margin-bottom: 95px;
+}
+.footer__email-block {
+  margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+  .footer__connect:before {
+    display: none;
+  }
+}
+.form-email__input {
+  background: #3d3d3d;
+  height: 41px;
+  font-style: normal;
+  padding: 10px 60px 11px 13px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+}
+.form-email__input,
+.form-email__btn {
+  border-radius: 0;
+  overflow: hidden;
+  border-color: #dc6226;
+}
+.form-email__btn {
+  transition: 0.3s linear all;
+  font-weight: 700;
+  box-sizing: border-box;
+  width: 97px;
+  height: 41px;
+  text-align: center;
+  padding: 0;
+  color: #e8eef2;
+  background: #dc6226;
+}
+.form-email__btn:hover {
+  background: #363636;
+  color: #e8eef2;
+}
+.list-social {
+  margin-left: -10px;
+}
+.list-social__item {
+  display: inline-block;
+}
+.list-social__link {
+  color: #e8eef2;
+  font-size: 31px;
+  line-height: 31px;
+  transition: 0.2s linear all;
+}
+.list-social__link:hover {
+  color: #dc6226;
+}
+@media (max-width: 1199px) {
+  .list-social__link {
+    font-size: 25px;
+    line-height: 25px;
+  }
 }

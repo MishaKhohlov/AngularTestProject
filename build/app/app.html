@@ -15,47 +15,86 @@
   </div>
 </header>
 
-<main ui-view></main>
+<!--<main ui-view></main>-->
 
 <footer class="container-fluid footer">
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
       <div class="row">
-        <div class="col-md-8 footer__nav">
+        <div class="col-sm-8 footer__nav">
           <div class="row">
-            <div class="col-md-3 footer__column">
+            <div class="col-sm-3 footer__column">
               <nav>
                 <h4 class="footer__title">Navigation</h4>
                 <ul class="footer__list">
                   <li ng-repeat="link in app.links" class="footer__item">
-                    <a href="" ui-sref="{{link.component}}" ui-sref-active=""
+                    <a href="" ui-sref="{{link.component}}" ui-sref-active="footer__item-link--color-active"
                        class="footer__item-link">{{link.name}}</a>
                   </li>
                 </ul>
               </nav>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-3">
               <h4 class="footer__title">News</h4>
               <ul class="footer__list">
-                <li class="footer__item"></li>
+                <li class="footer__item"><a href="" class="footer__item-link">New Releases</a></li>
+                <li class="footer__item"><a href="" class="footer__item-link">Events</a></li>
+                <li class="footer__item"><a href="" class="footer__item-link">How To</a></li>
+                <li class="footer__item"><a href="" class="footer__item-link">Charity</a></li>
+                <li class="footer__item"><a href="" class="footer__item-link">Contests</a></li>
               </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-sn-5">
               <h4 class="footer__title">Get in touch</h4>
               <ul class="footer__list">
-                <li class="footer__item footer__item--weight-bold"></li>
+                <li class="footer__item footer__item--weight-bold">E-mail: <a href="" class="footer__item-link">mail@demolink.org</a>
+                </li>
+                <li class="footer__item footer__item--weight-bold">8901 Marmora Road</li>
+                <li class="footer__item footer__item--weight-bold">8901 Marmora Road</li>
+                <li class="footer__item footer__item--weight-bold">Freephone:+1 800 559 6580</li>
+                <li class="footer__item footer__item--weight-bold">FAX:+ 1 504 889 9898</li>
+                <li class="footer__item footer__item--weight-bold">FAX:+ 1 504 889 9898</li>
               </ul>
             </div>
           </div>
         </div>
-        <asside class="col-md-4 footer__connect">
+        <asside class="col-sm-4 footer__connect">
           <h4 class="footer__title">Connect Online</h4>
-          <ul>
-            <li></li>
+          <ul class="footer__list-social list-social">
+            <li class="list-social__item">
+              <a class="list-social__link" href="#">
+                <i class="icon-facebook"></i>
+              </a>
+            </li>
+            <li class="list-social__item">
+              <a class="list-social__link" href="#">
+                <i class="icon-gplus"></i>
+              </a>
+            </li>
+            <li class="list-social__item">
+              <a class="list-social__link" href="#">
+                <i class="icon-instagram-filled"></i>
+              </a>
+            </li>
+            <li class="list-social__item">
+              <a class="list-social__link" href="#">
+                <i class="icon-pinterest-circled"></i>
+              </a>
+            </li>
+            <li class="list-social__item">
+              <a class="list-social__link" href="#">
+                <i class="icon-twitter"></i>
+              </a>
+            </li>
           </ul>
           <div>
-            <h4 class="footer__title">Stay informed</h4>
-            <input type="email">
+            <h4 class="footer__title footer__title--magrin-min">Stay informed</h4>
+            <div class="input-group footer__email-block form-email">
+              <input type="email" class="form-control form-email__input" placeholder="email address">
+              <span class="input-group-btn">
+                <button class="btn btn-default form-email__btn" type="button">Sing up</button>
+              </span>
+            </div>
           </div>
         </asside>
       </div>
