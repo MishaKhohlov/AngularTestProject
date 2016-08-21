@@ -664,6 +664,11 @@ body {
 .footer__email-block {
   margin-bottom: 20px;
 }
+.footer__map {
+  color: #000;
+  min-height: 300px;
+  padding: 0;
+}
 @media (max-width: 767px) {
   .footer__title {
     margin-bottom: 15px;
@@ -679,7 +684,7 @@ body {
   background: #3d3d3d;
   height: 41px;
   font-style: normal;
-  padding: 10px 60px 11px 13px;
+  padding: 10px 10px 11px 13px;
   font-size: 14px;
   line-height: 20px;
   color: #fff;
