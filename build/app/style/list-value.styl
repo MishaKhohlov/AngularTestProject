@@ -1,0 +1,29 @@
+.list-value
+  &__item-img
+    width 100%
+  &__img-wrapper
+    width 100%
+    padding 6px
+    background white
+    box-shadow 0 4px 4px rgba(0,0,0,0.15)
+    margin-bottom 40px
+  &__title-list
+    color: app-text-black
+    text-transform: uppercase
+    font 900 20px/24px 'Lato', sans-serif
+    margin-bottom 10px
+  &__item
+    margin 0
+    padding 0 0 0 26px
+    font-mx(18px, 300, 30px, app-text-black)
+    font-style italic
+    position relative
+    &:before
+      content ''
+      position absolute
+      left 0
+      top 9px
+      display block
+      background: url('../assets/images/spritesheet.png') -10px -10px no-repeat;
+      width: 16px
+      height: 12px
