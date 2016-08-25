@@ -611,10 +611,19 @@ body {
 .header {
   color: #fff;
   background: #404b52;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
 }
 
 .header__logo {
   padding: 42px 0 30px;
+}
+
+.main {
+  padding-top: 100px;
 }
 
 .footer {
@@ -792,6 +801,10 @@ body {
   .company__wrapper {
     display: block;
   }
+
+  .main {
+    padding-top: 130px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -876,6 +889,10 @@ body {
 
   .our-value__item {
     margin-bottom: 40px;
+  }
+
+  .main {
+    padding-top: 268px;
   }
 
   .footer__title {

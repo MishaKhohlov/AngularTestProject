@@ -21,7 +21,8 @@ const emailValidation = () => {
       // this will overwrite the default Angular email validator
       ctrl.$validators.email = function (modelValue) {
         if (modelValue && EMAIL_REGEXP.test(modelValue)) {
-          if (modelValue.split('.')[1].length >= 2) {
+          const afterDot = modelValue.split('.')[1];
+          if (afterDot.length >= 2 && afterDot.indexOf(' ') === -1) {
             return true;
           }
         }

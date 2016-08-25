@@ -22,10 +22,28 @@ body
 // block header
 
 .header
-  color: white
-  background: app-text
+  color white
+  background app-text
+  position fixed
+  top 0
+  left 0
+  right 0
+  z-index 3
   &__logo
     padding 42px 0 30px
+
+// block main
+
+.main
+  padding-top 100px
+
+@media(max-width: media-md)
+  .main
+    padding-top 130px
+
+@media(max-width: media-xs)
+  .main
+    padding-top 268px
 
 // block footer
 
